@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'home/css/HomeTemp.css' %}"/>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:700|Source+Serif+Pro&display=swap" rel="stylesheet">
+    <title>Seth Angell</title>
+</head>
+<body>
+    <div class="nice-to-meet-you">
+        <div class="ntmy-main">
+            <div class="ntmy-headshot">
+                <img class="ntmy-headshot-image" src="{{ info.avatar.url }}" alt="the image of an incredibly creative dev you should work with">
+            </div>
+            <div class="ntmy-pitch">
+                 <h1>Hey, I'm Seth. Junior button pusher based out of beautiful Wilmington, North Carolina</h1>
+            </div>
+        </div>
+    </div>
+    <div class="let-me-introduce-myself">
+        <div class="lmim-bio">
+            <h2 class="lmim-header">Let's talk:</h2>
+            <div class="lmim-copy">
+                <p>{{ info.bio }}</p>
+            </div>
+        </div>
+        <div class="lmim-these-are-a-few">
+            <h2 class="lmim-header">My favorite things:</h2>
+            <ul class="lmim-few-of-list">
+                <li class="lmim-list-item">
+                    <img class="icons" src="{% static 'home/assets/apple.svg' %}">
+                    <h2 class="lmim-job-company">Apple</h2>
+                </li>
+                <li class="lmim-list-item">
+                    <h2 class="lmim-job-company">Ubuntu</h2>
+                    <img class="icons" src="{% static 'home/assets/ubuntu.svg' %}">
+                </li>
+                <li class="lmim-list-item">
+                    <h2 class="lmim-job-company">C#</h2>
+                    <img class="icons" src="{% static 'home/assets/csharp.svg' %}">
+                </li>
+                <li class="lmim-list-item">
+                    <h2 class="lmim-job-company">Python</h2>
+                    <img class="icons" src="{% static 'home/assets/python.svg' %}">
+                </li>
+                <li class="lmim-list-item">
+                    <h2 class="lmim-job-company">Django</h2>
+                    <img class="icons" src="{% static 'home/assets/django.svg' %}">
+                </li>
+                <li class="lmim-list-item">
+                    <h2 class="lmim-job-company">Python</h2>
+                    <img class="icons" src="{% static 'home/assets/python.svg' %}">
+                </li>
+                <li class="lmim-list-item">
+                    <h2 class="lmim-job-company">Python</h2>
+                    <img class="icons" src="{% static 'home/assets/python.svg' %}">
+                </li>
+            </ul>
+
+
+
+
+
+            <img class="icons" src="{% static 'home/assets/postgresql.svg' %}">
+            <img class="icons" src="{% static 'home/assets/unity.svg' %}">
+            <img class="icons" src="{% static 'home/assets/markdown.svg' %}">
+        </div>
+        <div class="lmim-experience">
+            <h2 class="lmim-header">Experience:</h2>
+            {% for job in experience %}
+                {% if forloop.counter == 1 %}
+                    <div class="lmim-job-first">
+                        <h2 class="lmim-job-title">{{ job.title }}</h2>
+                        <div class="lmim-job-byline">
+                            <h2 class="lmim-job-company">{{ job.company }}</h2>
+                                {% if job.present == True %}
+                                    <h2 class="lmim-job-timeline">{{ job.start_year }} - Present</h2>
+                                {% else %}
+                                    <h2 class="lmim-job-timeline">{{ job.start_year }} - {{ job.end_year }}</h2>
+                                {% endif %}
+                        </div>
+                        <div class="lmim-job-copy">
+                            <p>{{ job.description }}</p>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="lmim-job">
+                        <h2 class="lmim-job-title">{{ job.title }}</h2>
+                        <div class="lmim-job-byline">
+                            <h2 class="lmim-job-company">{{ job.company }}</h2>
+                                {% if job.present == True %}
+                                    <h2 class="lmim-job-timeline">{{ job.start_year }} - Present</h2>
+                                {% else %}
+                                    <h2 class="lmim-job-timeline">{{ job.start_year }} - {{ job.end_year }}</h2>
+                                {% endif %}
+                        </div>
+                        <div class="lmim-job-copy">
+                            <p>{{ job.description }}</p>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

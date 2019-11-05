@@ -1,0 +1,189 @@
+/* ======================= Color Scheme ======================= */
+/* pulled from: https://visme.co/blog/website-color-schemes/ #4 */
+/* Dark purply-blue:    #05386B                                 */
+/* Emerald Green:       #379683                                 */
+/* Electric Mint:       #5CDB95                                 */
+/* Desaturated Mint:    #8EE4AF                                 */
+/* MeltedMintChocoChip: #EDF5E1                                 */
+/* ============================================================ */
+
+{% load static %}
+
+h1{
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #05386B;
+    font-size: 35px;
+}
+
+h2{
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #05386B;
+    font-size: 20px;
+}
+
+p{
+    font-family: 'Source Serif Pro', serif;
+    color: #05386B;
+    font-size: 15px;
+    margin: 0;
+    word-wrap: break-word;
+}
+
+body{
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.nice-to-meet-you{
+    /* Screen size specific */
+    float: left;
+    position: fixed;
+    left: 0;
+    top:0;
+    width:50%;
+    height:100%;
+
+    display: inline-block;
+    background-color: #5CDB95;
+    background-image: url('../assets/ILMOverlay.png');
+    background-size: auto 125%;
+
+
+}
+
+.ntmy-main{
+    /* Screen size specific */
+    margin: 0;
+    position: relative;
+    top: 50%;
+    transform: translateY(-60%); /*Figure out what this does? */
+
+}
+
+.ntmy-headshot{
+    display: block;
+    margin: auto;
+    width: 250px;
+    height: 250px;
+    border-radius: 200px;
+    box-shadow: 0 5px 10px #379683;
+
+}
+
+.ntmy-headshot-image{
+    border-radius: 200px;
+    width: 100%;
+}
+
+.ntmy-pitch{
+    max-width: 550px;
+    padding: 0 40px;
+    display: block;
+    margin: 10px auto auto auto;
+    text-align: center;
+}
+
+.let-me-introduce-myself{
+    /* Screen size specific */
+    float: right;
+    position: fixed;
+    right: 0;
+    top:0;
+    width: 45%;
+    height:100%;
+    display: inline-block;
+    padding: 20px;
+
+    color: #ffffff;
+
+    /* Scrolling software */
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
+
+}
+
+.lmim-bio{
+    clear: both;
+    display: block;
+    margin: 40px 0 0 0;
+    overflow: auto;
+}
+
+.lmim-copy{
+    float: left;
+    width: 75%;
+    max-width: 500px;
+    line-height: 26px;
+
+}
+
+.lmim-experience{
+    clear: both;
+    display: block;
+    margin: 40px 0 0 0;
+    overflow: auto;
+}
+
+.lmim-job,.lmim-job-first{
+    margin-left: 110px;
+    float: left;
+    max-width: 500px;
+    margin-bottom: 20px;
+    width: 75%;
+}
+
+.lmim-job-first{
+    margin-left: 0;
+}
+
+.lmim-job-byline{
+    clear:both;
+}
+
+.lmim-job-copy{
+    margin: 4px 0 0 0;
+    float: left;
+    max-width: 500px;
+    line-height: 26px;
+}
+
+h2.lmim-header{
+    clear: both;
+    float: left;
+    width: 80px;
+    margin: 5px 30px 0 0;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #05386B;
+}
+
+h2.lmim-job-company{
+    float: left;
+    margin: 5px 30px 0 0;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #05386B;
+}
+
+h2.lmim-job-timeline{
+    float: right;
+    margin: 5px 0 0 0;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #05386B;
+    z-index: 1;
+}
+
+h2.lmim-job-title{
+    clear: both;
+    float: left;
+    margin: 5px 30px 0 0;
+    font-size: 18px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #05386B;
+}

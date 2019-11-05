@@ -1,0 +1,56 @@
+h1{
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #f5f5f5;
+    font-size: 60px;
+}
+
+p{
+    font-family: 'Source Serif Pro', serif;
+    color: #f5f5f5
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-items: center;
+}
+
+.break {
+  flex-basis: 100%;
+  height: 0;
+}
+
+.inner-landing-container{
+    margin: auto;
+    background: #201d3a;
+    border-radius: 50px;
+    display: flex;
+    flex-flow: row wrap;
+
+}
+
+
+
+@media all and (min-width: 600px) {
+    .text-container { order: 1 }
+    .avatar { order: 2 }
+    .break { order: 3 }
+    .social-resume-links { order: 4 }
+
+    .inner-landing-container{
+        position: relative;
+        width:50%;
+    }
+
+    .text-container{
+        width:40%;
+        padding: 10px;
+    }
+
+    .avatar{
+    width: 50%;
+    border-radius: 100%;
+}
+
+
+}
