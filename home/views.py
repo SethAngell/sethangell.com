@@ -17,8 +17,9 @@ def Homepage(request):
             default=None
         )
     ).order_by(
-        '-current_job',
         '-past_job',
+        '-current_job',
+
 
     )
     context = {

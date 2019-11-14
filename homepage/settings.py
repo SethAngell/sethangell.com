@@ -11,6 +11,14 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+import sys
+
+ENVVars = open(os.getcwd()+'/homepage/PreEnvVariables.txt', "r")
+Var_List = []
+for x in ENVVars:
+    Var_List.append(x.strip("\n"))
+
+sys.path.append("\PersonalWebpage\WebEnv\Lib\site-packages")
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,7 +28,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'b(n58+2q=*v^y(k#ujecs4799n)7n2t*xg@tl5lsy8j@eyn+8a'
+SECRET_KEY = Var_List[0]
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -76,10 +84,21 @@ WSGI_APPLICATION = 'homepage.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': Var_List[1],
+        'USER': Var_List[2],
+        'PASSWORD': Var_List[3],
+        'HOST': Var_List[4],
+        'PORT': Var_List[5],
+
     }
 }
+
+if 'test' in sys.argv:
+    DATABASES['default'] = {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'mydatabase'
+    }
 
 
 # Password validation
