@@ -27,11 +27,18 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = Var_List[0]
-
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
+
+
+# SECURITY WARNING: keep the secret key used in production secret!
+if DEBUG == True:
+    SECRET_KEY = Var_List[0]
+else:
+    SECRET_KEY = os.environ['secret_key']
+
+
+
 
 ALLOWED_HOSTS = ["*"]
 
@@ -82,23 +89,45 @@ WSGI_APPLICATION = 'homepage.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': Var_List[1],
-        'USER': Var_List[2],
-        'PASSWORD': Var_List[3],
-        'HOST': Var_List[4],
-        'PORT': Var_List[5],
+if DEBUG == True:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': Var_List[1],
+            'USER': Var_List[2],
+            'PASSWORD': Var_List[3],
+            'HOST': Var_List[4],
+            'PORT': Var_List[5],
 
+        }
     }
-}
 
-if 'test' in sys.argv:
-    DATABASES['default'] = {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'mydatabase'
+    if 'test' in sys.argv:
+        DATABASES['default'] = {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': 'mydatabase'
+        }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': os.environ['db_name'],
+            'USER': os.environ['db_user'],
+            'PASSWORD': os.environ['db_password'],
+            'HOST': os.environ['db_location'],
+            'PORT': os.environ['db_port'],
+
+        }
     }
+
+    if 'test' in sys.argv:
+        DATABASES['default'] = {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': 'mydatabase'
+        }
+
+
+
 
 
 # Password validation
@@ -144,3 +173,14 @@ STATICFILES_DIRS = [
 STATIC_ROOT=os.path.join('static')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+if DEBUG == False:
+    SECURE_CONTENT_TYPE_NOSNIFF = True
+    SECURE_HSTS_SECONDS = 36000
+    SECURE_BROWSER_XSS_FILTER = True
+    SECURE_SSL_REDIRECT = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    X_FRAME_OPTIONS = 'DENY'
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_PRELOAD = True
