@@ -22,6 +22,14 @@ h2{
     font-size: 20px;
 }
 
+h3{
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: #05386B;
+    text-transform: uppercase;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
 p{
     font-family: 'Source Serif Pro', serif;
     color: #05386B;
@@ -273,7 +281,7 @@ img.icons{
 }
 
 
-h2.lmim-header{
+h1.lmim-header{
     clear: both;
     float: left;
     width: 80px;
@@ -284,7 +292,7 @@ h2.lmim-header{
     color: #05386B;
 }
 
-h2.lmim-job-company{
+h3.lmim-job-company{
     float: left;
     margin: 5px 30px 0 0;
     font-size: 14px;
@@ -293,7 +301,7 @@ h2.lmim-job-company{
     color: #05386B;
 }
 
-h2.lmim-job-timeline{
+h3.lmim-job-timeline{
     float: right;
     margin: 5px 0 0 0;
     font-size: 14px;
@@ -561,7 +569,7 @@ h2.lmim-job-title{
 
 }
 
-@media screen and (max-width: 479px) {
+@media screen and (max-width: 767px) {
 
     h1{
         font-family: 'Source Sans Pro', sans-serif;
@@ -658,7 +666,7 @@ h2.lmim-job-title{
         right: 0;
         top:0;
         width: 100%;
-        max-width: 479px;
+        max-width: 767px;
         height:100%;
 
         color: #ffffff;
@@ -695,7 +703,7 @@ h2.lmim-job-title{
     .lmim-copy {
         float: left;
         width: 100%;
-        max-width: 439px;
+        max-width: 760px;
         line-height: 26px;
     }
 
@@ -766,7 +774,7 @@ h2.lmim-job-title{
     .lmim-job,.lmim-job-first{
         margin-left: 0;
         float: left;
-        max-width: 500px;
+        max-width: 760px;
         margin-bottom: 20px;
         width: 100%;
     }
@@ -786,4 +794,11 @@ h2.lmim-job-title{
         margin: 0 0 40px 0;
     }
 
+
+    .lmim-job-copy{
+        margin: 4px 0 0 0;
+        float: left;
+        max-width: 767px;
+        line-height: 26px;
+    }
 }
