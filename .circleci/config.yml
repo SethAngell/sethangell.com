@@ -36,8 +36,7 @@ jobs:
       - run:
           name: "Connect and Deploy"
           command: |
-            echo '50.116.41.128 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBO3fYk6WbBRMaewY2zNbA/Mt6MNFFM342CrBF7yA1EQnfk2dBeEj/dOeuViw7cLPD9ytKOYz1rLVlh1cf/Xz4Jw=' >> ~/.ssh/known_hosts
-            ssh sethangell@50.116.41.128 << 'ENDSSH'
+            ssh -vv "StrictHostKeyChecking=no" sethangell@50.116.41.128 << 'ENDSSH'
             cd portfolio
             git pull
             source env/bin/activate
