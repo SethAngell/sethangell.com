@@ -13,10 +13,6 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import os
 import sys
 
-ENVVars = open(os.getcwd()+'/homepage/PreEnvVariables.txt', "r")
-Var_List = []
-for x in ENVVars:
-    Var_List.append(x.strip("\n"))
 
 sys.path.append("\PersonalWebpage\WebEnv\Lib\site-packages")
 
@@ -28,11 +24,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
+DEBUG = "False" 
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
 if DEBUG == True:
+    ENVVars = open(os.getcwd()+'/homepage/PreEnvVariables.txt', "r")
+    Var_List = []
+    for x in ENVVars:
+        Var_List.append(x.strip("\n"))
     SECRET_KEY = Var_List[0]
 else:
     SECRET_KEY = os.environ['secret_key']
