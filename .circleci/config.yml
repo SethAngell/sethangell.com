@@ -8,6 +8,9 @@ jobs:
       - restore_cache:
           key: deps1-{{ .Branch }}-{{ checksum "requirements.txt" }}
       - run:
+          name: "Set Python Version"
+          command: pyenv global 3.7.0
+      - run:
           command:  |
             python3 -m venv env
             . env/bin/activate
