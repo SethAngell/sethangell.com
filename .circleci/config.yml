@@ -37,12 +37,13 @@ jobs:
           name: "Connect and Deploy"
           command: |
             echo '50.116.41.128 ecdsa-sha2-nistp256 AAAAB3NzaC1yc2EAAAADAQABAAABAQDSxPmsVHkAyDp9lb2pprsGAW7MFIIafyyI3fOs2ZpMsFzm/nWV9gmEyLyRY2AhRHN3v20qUUn4cbSWtQ4FtNVQWQfweYYkd7FegrJWOKD0ie5wAPWKaHr4vkzwMz7whhlm8j54FHTGZvib2Kc0nj/mRJ+VPhcqgtWpojwrJluM7CzvEV2DgP2k12kOsD6hPV491NpBiMpYro4ntu3LsOBB3iD5KUyP64xTZPqiqZsU8eAsk98JmNcAoMysPt5zDsCjmamrMllQuzuQjjCR+vvh3kvDxvjMCIVztYRyD1ztE85dnwPFGYeIrzS+KfwYy/EU2jTsVfglhK8Y0JpRxk23' >> ~/.ssh/known_hosts
-            ssh sethangell@50.116.41.128
+            ssh sethangell@50.116.41.128 << 'ENDSSH'
             cd portfolio
             git pull
             source env/bin/activate
             python manage.py makemigrations
             python manage.py migrate
+            ENDSSH
 
 
 workflows:
