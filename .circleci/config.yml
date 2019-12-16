@@ -36,7 +36,7 @@ jobs:
       - run:
           name: "Connect and Deploy"
           command: |
-            echo '50.116.41.124 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBORweKXoNESafnKbyiNfHqfjfnturw3CiQOk2GQEal6xViB/I95OJWvk6ZIg++wM9EAW1/W32yUU1yKH+opA3tw=' >> ~/.ssh/known_hosts
+            echo '50.116.41.128 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBO3fYk6WbBRMaewY2zNbA/Mt6MNFFM342CrBF7yA1EQnfk2dBeEj/dOeuViw7cLPD9ytKOYz1rLVlh1cf/Xz4Jw=' >> ~/.ssh/known_hosts
             ssh sethangell@50.116.41.128 << 'ENDSSH'
             cd portfolio
             git pull
