@@ -36,7 +36,7 @@ jobs:
       - run:
           name: "Connect and Deploy"
           command: |
-            ssh -vv "StrictHostKeyChecking=no" sethangell@50.116.41.128 << 'ENDSSH'
+            ssh -vv -o "StrictHostKeyChecking=no" sethangell@50.116.41.128 << 'ENDSSH'
             cd portfolio
             git pull
             source env/bin/activate
