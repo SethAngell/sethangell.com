@@ -43,7 +43,7 @@ else:
 
 
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["sethangell.com"]
 
 
 # Application definition
