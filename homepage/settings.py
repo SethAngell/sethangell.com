@@ -24,7 +24,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+if os.environ["DJANGO_DEBUG"] == "True":
+    DEBUG = True
+else:
+    DEBUG = False
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
