@@ -228,7 +228,6 @@ def sections_to_html_string(html_sections: deque) -> str:
 def on_save_attribute_extraction(md_post: str, title: str) -> dict:
     if len(title) == 0:
         sectioned_post = md_post.split("\n")
-        print(sectioned_post)
 
         blog_preview = md_stripper(sectioned_post[1])[:100]
 

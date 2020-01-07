@@ -13,12 +13,16 @@ class BlogPostTestCase(TestCase):
 
     def setUp(self) -> None:
         BlogPost.objects.create(
-            body=self.test_post
+            md_body=self.test_post
         )
+
+        self.test_post = self.test_post.split("\n")
+        self.test_post.pop(0)
+        self.test_post = "\n".join(self.test_post)
         self.penultimate_post = BlogPost.objects.get(slug="sample-header-post")
 
     def test_body_saved_properly(self):
-        self.assertEqual(self.penultimate_post.body, self.test_post)
+        self.assertEqual(self.penultimate_post.md_body, self.test_post)
 
     def test_title_saved_properly(self):
         self.assertEqual(self.penultimate_post.title, self.test_title)
