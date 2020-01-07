@@ -5,11 +5,19 @@ from .models import BlogPost
 # Create your views here.
 def blog_detail(request, slug):
     blog_post = BlogPost.objects.get(slug=slug)
-    blog_post.body = sanitized_html_for_site(blog_post.body)
 
     context = {
         "blog_post" : blog_post
     }
 
     return render(request, "blog/blog_detail.html", context)
+
+def blog_index(request):
+    blogs = BlogPost.objects.order_by('-created_date')
+
+    context = {
+        "blog_posts" : blogs
+    }
+
+    return render(request, "blog/blog_index.html", context)
 

@@ -26,4 +26,4 @@ def Homepage(request):
         "info": info,
         "experience": experience
     }
-    return render(request, "home/Home.html", context)
+    return render(request, "home/home.html", context)

@@ -43,6 +43,12 @@ body {
     padding: 0;
 }
 
+a{
+    transition: border 0.1s linear, color 0.1s linear, background-color 0.1s linear;
+}
+
+
+/* ========== BEGIN HOMEPAGE CSS ========== */
 .nice-to-meet-you{
     /* Screen size specific */
     float: left;
@@ -92,9 +98,7 @@ body {
     text-align: center;
 }
 
-a{
-    transition: border 0.1s linear, color 0.1s linear, background-color 0.1s linear;
-}
+
 
 .ntmy-collab-and-coffee{
     /* container styling */
@@ -320,6 +324,152 @@ h2.lmim-job-title{
     text-transform: uppercase;
     color: #05386B;
 }
+
+/* ========== END HOMEPAGE CSS ========== */
+
+
+
+
+
+
+/* =========== BEGIN BLOG CSS =========== */
+hr{
+    margin: 10% auto;
+}
+
+a.blog_title_link{
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #05386B;
+    font-size: 35px;
+    opacity: 1;
+    transition: border 0.5s linear, color 0.5s linear, background-color 0.5s linear;
+    text-decoration: none;
+}
+
+p.date-detail{
+    font-family: 'Source Code Pro', monospace;
+    text-transform: uppercase;
+    font-size: 15px;
+    margin: -20px 0 20px 0;
+}
+
+p.date-index{
+    font-family: 'Source Code Pro', monospace;
+    text-transform: uppercase;
+    font-size: 15px;
+    margin: 5px 0 5px 0;
+}
+
+a.blog_title_link:hover{
+    opacity: .75;
+}
+
+h1.blog_text{
+    font-size: 35px;
+}
+h2.blog_text{
+    font-size: 25px;
+}
+h3.blog_text{
+    font-size: 20px;
+    text-transform: uppercase;
+}
+p.blog_text{
+    font-size: 20px;
+    padding: 1px;
+}
+ul.blog_text{
+
+}
+ol.blog_text{
+
+}
+b.blog_text{
+
+}
+i.blog_text{
+
+}
+li.blog_text{
+    font-size: 20px;
+    color: #05386B;
+}
+a.blog_text{
+    color: #FD873E;
+}
+
+a.blog_text:visited{
+    color: #c7662a;
+}
+
+p.code{
+    font-family: 'Source Code Pro', monospace;
+    font-size: 14px;
+    color: #5CDB95
+}
+
+span.content-title{
+    position: relative;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #05386B;
+    font-size: 35px;
+    margin: auto 10px;
+    float: left;
+}
+
+a.content-links{
+    position: relative;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #05386B;
+    font-size: 20px;
+    margin: auto 25px;
+    float: right;
+    text-transform: uppercase;
+    text-decoration: none;
+    opacity: 1;
+    transition: border 0.5s linear, color 0.5s linear, background-color 0.5s linear;
+}
+
+a.content-links:hover{
+    opacity: 0.75;
+}
+
+.code_snippet{
+    padding: 10px;
+    margin: 5px auto;
+    border-radius: 10px;
+    border: 2px solid #1d1e22;
+    background-color: #1d1e22;
+}
+
+.blog_container{
+    width: 620px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.content-header{
+    display: inline-block;
+    position: relative;
+    height: 5em;
+    line-height: 5em;
+    width: 100%;
+    background-color: #5CDB95;
+    justify-content: center;
+    margin-bottom: 10px;
+
+}
+
+
+
+
+
+/* =========== END BLOG CSS =========== */
+
+
+
+
+
 
 @media screen and (max-width: 1020px) {
 

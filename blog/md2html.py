@@ -24,6 +24,67 @@ def str_to_stack(md_post: str) -> deque:
 
     return md_stack
 
+def md_stripper(md_line: str) -> str:
+    style_stack = deque()
+    text_stack = deque()
+    formatted_list = []
+    style_symbols = ("\\", "_", "[")
+    char_pointer = 0
+
+    while char_pointer < len(md_line):
+        if md_line[char_pointer] not in style_symbols:
+            text_stack.append(md_line[char_pointer])
+        else:
+            if md_line[char_pointer] == "\\":
+                text_stack.append(md_line[char_pointer + 1])
+                char_pointer += 1
+            else:
+                if (char_pointer + 1 != len(md_line)) and (
+                        md_line[char_pointer] + md_line[char_pointer + 1] == "__"):
+                    if len(style_stack) % 2 == 0:
+                        style_stack.append("<b class=\"blog_text\">")
+                        text_stack.append("%({})%")
+                        char_pointer += 1
+                    else:
+                        style_stack.append("</b>")
+                        text_stack.append("%({})%")
+                        char_pointer += 1
+                else:
+                    if (md_line[char_pointer] == "_"):
+                        if len(style_stack) % 2 == 0:
+                            style_stack.append("<i class=\"blog_text\">")
+                            text_stack.append("%({})%")
+                        else:
+                            style_stack.append("</i>")
+                            text_stack.append("%({})%")
+                    else:
+                        if (md_line[char_pointer] == "["):
+                            link_search = char_pointer
+                            md_url = ""
+                            while md_line[link_search] != '(':
+                                link_search += 1
+                            link_search += 1
+                            while md_line[link_search] != ')':
+                                md_url += md_line[link_search]
+                                link_search += 1
+                            text_stack.append("%({})%")
+                            style_stack.append(f'<a href=\"https://{md_url}\" class=\"blog_text\">')
+                            char_pointer += 1
+                            while md_line[char_pointer] != "]":
+                                text_stack.append(md_line[char_pointer])
+                                char_pointer += 1
+                            text_stack.append("%({})%")
+                            style_stack.append("</a>")
+                            char_pointer = link_search
+        char_pointer += 1
+
+    while len(text_stack) != 0:
+        current_char = text_stack.pop()
+        if current_char != "%({})%":
+            formatted_list.insert(0, current_char)
+
+    return "".join(formatted_list)
+
 def remove_blank_lines(preprocessed_article: deque) -> deque:
     preprocessed_article.append("You've popped the whole stack")
     current_section = preprocessed_article.popleft()
@@ -38,15 +99,15 @@ def remove_blank_lines(preprocessed_article: deque) -> deque:
 # TODO: Add recursion(?) for nested lists
 def section_to_div(sections: deque) -> deque:
     html_conversion_dict = {
-        "#": ("<h1>", "</h1>"),
-        "##": ("<h2>", "</h2>"),
-        "###": ("<h3>", "</h3>"),
-        "p": ("<p>", "</p>"),
-        "*": ("<li>", "</li>"),
-        "n": ("<li>", "</li>")
+        "#":    ("<h1 class=\"blog_text\">", "</h1>"),
+        "##":   ("<h2 class=\"blog_text\">", "</h2>"),
+        "###":  ("<h3 class=\"blog_text\">", "</h3>"),
+        "p":    ("<p class=\"blog_text\">", "</p>"),
+        "*":    ("<li class=\"blog_text\">", "</li>"),
+        "n":    ("<li class=\"blog_text\">", "</li>"),
     }
-    md_symbol_set = ("#", "##", "###", "*")
-    stopping_set = ('<h1>', '<h2>', '<h3>','<ul>', '<li>', '<p>')
+    md_symbol_set = ("#", "##", "###", "*",)
+    stopping_set = ('<h1', '<h2',"<h3", "<p ", "<ol", "<ul")
 
     def md_type_identifier(chunk_to_parse: str) -> str:
         parsed_string = chunk_to_parse.split(" ")
@@ -56,29 +117,39 @@ def section_to_div(sections: deque) -> deque:
         else:
             if re.search("^[0-9]+[.]", chunk_to_parse):
                 parsed_string.pop(0)
-                return f'<li>{md_style_to_html(" ".join(parsed_string))}</li>'
+                return f'<li class=\"blog_text\">{md_style_to_html(" ".join(parsed_string))}</li>'
             else:
-                return f'<p>{md_style_to_html(" ".join(parsed_string))}</p>'
+                return f'<p class=\"blog_text\">{md_style_to_html(" ".join(parsed_string))}</p>'
 
 
     current_section = sections.popleft()
-    while current_section[0:4] not in stopping_set:
+    while current_section[0:3] not in stopping_set:
         if current_section[0] == "*":
-            sections.append("<ul>")
+            sections.append("<ul class=\"blog_text\">")
             while current_section[0] == "*":
                 sections.append(md_type_identifier(current_section))
                 current_section = sections.popleft()
             sections.append("</ul>")
         else:
             if re.search("^[0-9]+[.]", current_section):
-                sections.append("<ol>")
+                sections.append("<ol class=\"blog_text\">")
                 while re.search("^[0-9]+[.]", current_section):
                     sections.append(md_type_identifier(current_section))
                     current_section = sections.popleft()
                 sections.append("</ol>")
             else:
-               sections.append(md_type_identifier(current_section))
-               current_section = sections.popleft()
+                if current_section[0:3] == "```":
+                    sections.append("<div class=\"code_snippet\">")
+                    current_section = sections.popleft()
+                    while current_section[0:3] != "```":
+                        sections.append(f'<p class=\"code\">{current_section}</p>')
+                        current_section = sections.popleft()
+                    sections.append("</div>")
+                    current_section = sections.popleft()
+
+                else:
+                   sections.append(md_type_identifier(current_section))
+                   current_section = sections.popleft()
     sections.appendleft(current_section)
 
     return sections
@@ -129,7 +200,7 @@ def md_style_to_html(line_to_style: str) -> str:
                                 md_url+=line_to_style[link_search]
                                 link_search+=1
                             text_stack.append("%({})%")
-                            style_stack.append(f'<a href=\"https://{md_url}\">')
+                            style_stack.append(f'<a href=\"https://{md_url}\" class=\"blog_text\">')
                             char_pointer+=1
                             while line_to_style[char_pointer] != "]":
                                 text_stack.append(line_to_style[char_pointer])
@@ -154,16 +225,35 @@ def sections_to_html_string(html_sections: deque) -> str:
         html_string += html_sections.popleft()
     return html_string
 
-def on_save_attribute_extraction(md_post: str) -> dict:
-    sectioned_post = md_post.split("\n")
+def on_save_attribute_extraction(md_post: str, title: str) -> dict:
+    if len(title) == 0:
+        sectioned_post = md_post.split("\n")
+        print(sectioned_post)
 
-    raw_title = sectioned_post[0].split(" ")
-    raw_title.pop(0)
-    cleaned_title = " ".join(raw_title)
+        blog_preview = md_stripper(sectioned_post[1])[:100]
 
-    attribute_dict = {
-        "title" : cleaned_title
-    }
+        raw_title = sectioned_post.pop(0).split(" ")
+        raw_title.pop(0)
+        cleaned_title = " ".join(raw_title)
+
+        sectioned_post = "\n".join(sectioned_post)
+
+        attribute_dict = {
+            "title": cleaned_title,
+            "preview": blog_preview,
+            "body": sectioned_post
+        }
+    else:
+        sectioned_post = md_post.split("\n")
+
+        blog_preview = md_stripper(sectioned_post[0])[:100]
+        sectioned_post = "\n".join(sectioned_post)
+
+        attribute_dict = {
+            "title": title,
+            "preview": blog_preview,
+            "body": sectioned_post
+        }
 
     return attribute_dict
 
@@ -174,6 +264,7 @@ def sanitized_html_for_site(raw_md_post: str) -> str:
     html_string = sections_to_html_string(converted_md_post)
 
     return html_string
+
 
 # test_stack = text_file_to_stack("SampleHeaderPost_1.txt")
 # test_stack = text_file_to_stack("ComfortablyClueless.txt")

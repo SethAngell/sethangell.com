@@ -40,10 +40,10 @@ if DEBUG == True:
 else:
     SECRET_KEY = os.environ['secret_key']
 
-
-
-
-ALLOWED_HOSTS = ["*"]
+if DEBUG == True:
+    ALLOWED_HOSTS = ["*"]
+else:
+    ALLOWED_HOSTS = ["sethangell.com"]
 
 
 # Application definition

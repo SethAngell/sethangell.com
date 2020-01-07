@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'home/css/_base.css' %}"/>
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:700|Source+Serif+Pro&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/8dfe4d58bc.js"></script>
+    <title>{% block title %}Seth Angell{% endblock title %}</title>
+    <link rel="shortcut icon" type="image/png" href="{% static 'home/assets/favicon.ico' %}"/>
+</head>
+<body>
+{% block content %}
+{%  endblock content %}
+</body>
+</html>

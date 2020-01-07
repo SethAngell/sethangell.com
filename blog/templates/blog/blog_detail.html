@@ -1,10 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ blog_post.title }}</title>
-</head>
-<body>
-    {{ blog_post.body | safe }}
-</body>
-</html>
+{% extends '_base.html' %}
+{% load static %}
+{% block title %}{{ blog_post.title }}{% endblock title %}
+{% block content %}
+    <div class="content-header">
+        <span class="content-title">DoubleL Press</span>
+        <a class="content-links" href="{% url 'home' %}">home</a>
+        <a class="content-links" href="{% url 'blog_index' %}">blog</a>
+    </div>
+    <div class="blog_container">
+        <h1 class="blog_text">{{ blog_post.title }}</h1>
+        {% if blog_post.created_date == blog_post.updated %}
+            <p class="date-detail">Posted on: {{ blog_post.created_date }}</p>
+        {% else %}
+            <p class="date-detail">Posted on: {{ blog_post.created_date }} | Updated on: {{ blog_post.updated }}</p>
+        {% endif %}
+        {{ blog_post.html_body | safe }}
+    </div>
+
+{% endblock content %}

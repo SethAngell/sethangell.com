@@ -1,15 +1,7 @@
-<!DOCTYPE html>
+{% extends "_base.html" %}
 {% load static %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="{% static 'home/css/Home.css' %}"/>
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:700|Source+Serif+Pro&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/8dfe4d58bc.js"></script>
-    <title>Seth Angell</title>
-</head>
-<body>
+{% block title %}Seth Angell{% endblock title %}
+{% block content %}
     <div class="nice-to-meet-you">
         <div class="ntmy-main">
             <div class="ntmy-headshot">
@@ -92,5 +84,4 @@
             {% endfor %}
         </div>
     </div>
-</body>
-</html>
+{% endblock content %}
