@@ -36,12 +36,16 @@ jobs:
       - run:
           name: "Connect and Deploy"
           command: |
-            ssh sethangell@50.116.41.128 "./deploy_master.sh"
+            ssh $SSH_USER@SSH_HOST "./deploy_master.sh"
 workflows:
   version: 2
   build-and-deploy:
     jobs:
       - build
       - deploy:
+          branches:
+            ignore:
+              - develop
+              - /sa-1-.*/
           requires:
             - build
