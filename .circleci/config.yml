@@ -36,13 +36,7 @@ jobs:
       - run:
           name: "Connect and Deploy"
           command: |
-            ssh -vv -o "StrictHostKeyChecking=no" sethangell@50.116.41.128 << 'ENDSSH'
-            cd portfolio
-            git pull
-            source env/bin/activate
-            python manage.py makemigrations
-            python manage.py migrate
-            ENDSSH
+            ssh sethangell@50.116.41.128 "./deploy_master.sh"
 workflows:
   version: 2
   build-and-deploy:
