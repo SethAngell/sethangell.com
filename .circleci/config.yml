@@ -43,10 +43,10 @@ workflows:
     jobs:
       - build
       - deploy:
+          requires:
+            - build
           filter:
             branches:
               ignore:
                 - develop
                 - /sa-1-.*/
-          requires:
-            - build
