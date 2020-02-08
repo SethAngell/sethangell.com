@@ -96,6 +96,19 @@ def remove_blank_lines(preprocessed_article: deque) -> deque:
             current_section = preprocessed_article.popleft()
     return preprocessed_article
 
+def replace_blank_lines_with_symbol(preprocessed_article: deque) -> deque:
+    preprocessed_article.append("You've popped the whole stack")
+    current_section = preprocessed_article.popleft()
+    while current_section != "You've popped the whole stack":
+        if (len(current_section) == 0) or (current_section == '\r') or (current_section == '\n'):
+            preprocessed_article.append("!!NEWLINE!!")
+            current_section = preprocessed_article.popleft()
+        else:
+            preprocessed_article.append(current_section)
+            current_section = preprocessed_article.popleft()
+
+    return preprocessed_article
+
 # TODO: Add recursion(?) for nested lists
 def section_to_div(sections: deque) -> deque:
     html_conversion_dict = {
@@ -148,8 +161,12 @@ def section_to_div(sections: deque) -> deque:
                     current_section = sections.popleft()
 
                 else:
-                   sections.append(md_type_identifier(current_section))
-                   current_section = sections.popleft()
+                    if current_section == "!!NEWLINE!!":
+                        sections.append("<br>")
+                        current_section = sections.popleft()
+                    else:
+                       sections.append(md_type_identifier(current_section))
+                       current_section = sections.popleft()
     sections.appendleft(current_section)
 
     return sections
@@ -258,7 +275,7 @@ def on_save_attribute_extraction(md_post: str, title: str) -> dict:
 
 def sanitized_html_for_site(raw_md_post: str) -> str:
     sectioned_md_post = str_to_stack(raw_md_post)
-    condensed_md_post = remove_blank_lines(sectioned_md_post)
+    condensed_md_post = replace_blank_lines_with_symbol(sectioned_md_post)
     converted_md_post = section_to_div(condensed_md_post)
     html_string = sections_to_html_string(converted_md_post)
 
