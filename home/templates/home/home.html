@@ -1,15 +1,7 @@
-<!DOCTYPE html>
+{% extends "_base.html" %}
 {% load static %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="{% static 'home/css/Home.css' %}"/>
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:700|Source+Serif+Pro&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/8dfe4d58bc.js"></script>
-    <title>Seth Angell</title>
-</head>
-<body>
+{% block title %}Seth Angell{% endblock title %}
+{% block content %}
     <div class="nice-to-meet-you">
         <div class="ntmy-main">
             <div class="ntmy-headshot">
@@ -23,12 +15,14 @@
             </a>
         </div>
         <div class="ntmy-social-container">
-                <a class="ntmy-social-link" href="https://instagram.com/SethAngell" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a class="ntmy-social-link" href="https://twitter.com/SethAngell" target="_blank"><i class="fab fa-twitter"></i></a>
-                <a class="ntmy-social-link" href="https://Github.com/SethAngell" target="_blank"><i class="fab fa-github"></i></a>
-                <a class="ntmy-social-link" href="https://open.spotify.com/user/sethyboyy?si=K2cfPG1gROGBWUknNXC4RQ" target="_blank"><i class="fab fa-spotify"></i></i></a>
-
-            </div>
+                <a class="ntmy-social-link" href="https://instagram.com/SethAngell" target="_blank"><i class="fa fa-instagram"></i></a>
+                <a class="ntmy-social-link" href="https://twitter.com/SethAngell" target="_blank"><i class="fa fa-twitter"></i></a>
+                <a class="ntmy-social-link" href="https://Github.com/SethAngell" target="_blank"><i class="fa fa-github"></i></a>
+                <a class="ntmy-social-link" href="https://open.spotify.com/user/sethyboyy?si=K2cfPG1gROGBWUknNXC4RQ" target="_blank"><i class="fa fa-spotify"></i></i></a>
+        </div>
+        <div class="ntmy-site-link-container">
+            <a class="ntmy-site-link" href={% url 'blog_index' %}>blog</a>
+        </div>
     </div>
     <div class="let-me-introduce-myself">
         <div class="lmim-bio">
@@ -92,5 +86,4 @@
             {% endfor %}
         </div>
     </div>
-</body>
-</html>
+{% endblock content %}

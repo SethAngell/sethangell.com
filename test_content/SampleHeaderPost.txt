@@ -1,0 +1,16 @@
+# Sample Header post
+This should be a standard sentence, except __this__ word should be bold. Along with that, here are a few bullet points, of ways to label variables:
+* CamelCase
+* pascalCase
+* snake\_case
+## This is a smaller header
+The thing about it is, sometimes I would also like to have words italicized, like _this_. Its the \#1 way to properly express sarcasm. The other important things is that I should be able to use a backslash like this \\, for some reason.
+## Moving forward, now lets try and make an ordered list
+Here is the list:
+1. first item
+2. __Second item, but bold__
+3. third item, but _half italicized_
+## Finally, a header to test out href replacement
+In the middle of this sentence, I've place a link to my [website](sethangell.com). In fact its on the word website. Heres another test which the link is placed at the end of the file, just to make sure that doesnt cause any issues: [click here if you hate being productive](reddit.com)
+### This is a header to see if I can simply add in additional ones
+wonder if it worked?

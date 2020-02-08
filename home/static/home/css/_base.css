@@ -31,7 +31,7 @@ h3{
 }
 
 p{
-    font-family: 'Source Serif Pro', serif;
+    font-family: 'literata', serif;
     color: #05386B;
     font-size: 15px;
     margin: 0;
@@ -43,6 +43,12 @@ body {
     padding: 0;
 }
 
+a{
+    transition: border 0.1s linear, color 0.1s linear, background-color 0.1s linear;
+}
+
+
+/* ========== BEGIN HOMEPAGE CSS ========== */
 .nice-to-meet-you{
     /* Screen size specific */
     float: left;
@@ -92,9 +98,7 @@ body {
     text-align: center;
 }
 
-a{
-    transition: border 0.1s linear, color 0.1s linear, background-color 0.1s linear;
-}
+
 
 .ntmy-collab-and-coffee{
     /* container styling */
@@ -157,6 +161,27 @@ a{
     right: 20px;
     bottom: 10px;
 }
+
+.ntmy-site-link-container{
+        position: absolute;
+        left: 20px;
+        bottom: 10px;
+}
+
+a.ntmy-site-link{
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #05386B;
+    height: 25px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    opacity: 1;
+}
+
+a.ntmy-site-link:hover{
+    opacity: .75;
+}
+
 a.ntmy-social-link{
     font-size: 24px;
     text-decoration:none;
@@ -321,6 +346,27 @@ h2.lmim-job-title{
     color: #05386B;
 }
 
+    span.content-title{
+        position: relative;
+        font-family: 'Source Sans Pro', sans-serif;
+        color: #05386B;
+        font-size: 35px;
+        margin: auto 10px;
+        float: left;
+    }
+
+/* ========== END HOMEPAGE CSS ========== */
+
+@media screen and (min-width: 767px){
+    .navbar-text{
+        display: block;
+    }
+    .navbar-icon{
+        display: none;
+    }
+}
+
+
 @media screen and (max-width: 1020px) {
 
     h1{
@@ -423,6 +469,12 @@ h2.lmim-job-title{
     .ntmy-social-container{
         position: absolute;
         right: 20px;
+        bottom: 10px;
+    }
+
+    .ntmy-site-link-container{
+        position: absolute;
+        left: 20px;
         bottom: 10px;
     }
 
@@ -564,7 +616,203 @@ h2.lmim-job-title{
     /*margin: 5px 30px 0 0;*/
     letter-spacing: 1px;
     text-transform: uppercase;
-}
+    }
+
+    /* =============== HAMBURGER MENU =============== */
+    /* ====== Adapted from this beautiful work ====== */
+    /* == https://codepen.io/erikterwan/pen/EVzeRP == */
+    /* ============================================== */
+
+    .nav-bar{
+        height: 5em;
+        margin-bottom: 10px;
+    }
+
+    .exposed-menu{
+        background-color: #5CDB95;
+        height: 100em;
+        z-index: 2;
+
+
+        transform: translatey(-100em);
+    }
+
+    div.hamburger-icon{
+        position: absolute;
+        right: 5px;
+        font-size: 3em;
+        line-height: 5em;
+        font-family: "FontAwesome";
+        content: "\f0c9";
+        color: #05386B;
+    }
+
+    input[type=checkbox]{
+        display: block;
+        z-index: 1;
+    }
+
+    input[type=checkbox]:checked ~ div.exposed-menu{
+        transform: translatey(200%);
+    }
+
+    input[type=checkbox] + label:before{
+
+        display: inline-block;
+
+        color: #05386B;
+    }
+
+    input.hamburger-menu + label:before {
+        position: absolute;
+        padding: 1px;
+        right: 10px;
+    }
+
+    input.hamburger-menu + label:before{
+
+    }
+
+
+
+
+
+
+
+
+
+
+    /* =========== HAMBURGER MENU =========== */
+
+    /* =========== BEGIN BLOG CSS =========== */
+    hr{
+        margin: 10% auto 5% auto;
+    }
+
+    a.blog_title_link{
+        font-family: 'Source Sans Pro', sans-serif;
+        color: #05386B;
+        font-size: 22px;
+        opacity: 1;
+        transition: border 0.5s linear, color 0.5s linear, background-color 0.5s linear;
+        text-decoration: none;
+    }
+
+    p.date-detail{
+        font-family: 'Source Code Pro', monospace;
+        text-transform: uppercase;
+        font-size: 12px;
+        margin: -10px 0 10px 0;
+    }
+
+    p.date-index{
+        font-family: 'Source Code Pro', monospace;
+        text-transform: uppercase;
+        font-size: 12px;
+        margin: 5px 0 5px 0;
+    }
+
+    a.blog_title_link:hover{
+        opacity: .75;
+    }
+
+    h1.blog_text{
+        font-size: 22px;
+    }
+    h2.blog_text{
+        font-size: 16px;
+    }
+    h3.blog_text{
+        font-size: 12px;
+        text-transform: uppercase;
+    }
+    p.blog_text{
+        font-size: 15px;
+        padding: 1px;
+    }
+    ul.blog_text{
+
+    }
+    ol.blog_text{
+
+    }
+    b.blog_text{
+
+    }
+    i.blog_text{
+
+    }
+    li.blog_text{
+        font-size: 15px;
+        color: #05386B;
+        margin: 3px auto;
+    }
+    a.blog_text{
+        color: #FD873E;
+    }
+
+    a.blog_text:visited{
+        color: #c7662a;
+    }
+
+    p.code{
+        font-family: 'Source Code Pro', monospace;
+        font-size: 12px;
+        color: #5CDB95
+    }
+
+    span.content-title{
+        position: relative;
+        font-family: 'Source Sans Pro', sans-serif;
+        color: #05386B;
+        font-size: 22px;
+        margin: auto 10px;
+        float: left;
+        line-height: 80px;
+    }
+
+    a.content-links{
+        position: relative;
+        font-family: 'Source Sans Pro', sans-serif;
+        color: #05386B;
+        font-size: 12px;
+        margin: auto 10px;
+        float: right;
+        text-transform: uppercase;
+        text-decoration: none;
+        opacity: 1;
+        transition: border 0.5s linear, color 0.5s linear, background-color 0.5s linear;
+    }
+
+    a.content-links:hover{
+        opacity: 0.75;
+    }
+
+    .code_snippet{
+        padding: 10px;
+        margin: 5px auto;
+        border-radius: 10px;
+        border: 2px solid #1d1e22;
+        background-color: #1d1e22;
+    }
+
+    .blog_container{
+        width: 90%;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .content-header{
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        height: 80px;
+        width: 100%;
+        background-color: #5CDB95;
+        justify-content: center;
+        margin-bottom: 10px;
+
+    }
 
 
 }
@@ -800,5 +1048,55 @@ h2.lmim-job-title{
         float: left;
         max-width: 767px;
         line-height: 26px;
+    }
+
+    /* =========== BEGIN BLOG CSS =========== */
+
+    .content-header{
+        display: block;
+        position: relative;
+        height: 5em;
+        line-height: 5em;
+        width: 100%;
+        background-color: #5CDB95;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .nav-bar-item{
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 18px;
+        text-decoration:none;
+        opacity: 1;
+        color: #05386B;
+        padding: 0 10px;
+        transition: border 0.1s linear, color 0.1s linear, background-color 0.1s linear;
+        text-transform: uppercase;
+    }
+
+    .navbar-text{
+
+    }
+
+    .navbar-text{
+        position: relative;
+        float: right;
+        display: none;
+
+    }
+    .navbar-icon{
+        position: relative;
+        float: right;
+        display: block;
+        margin: 0 10px 0 0
+    }
+
+    span.content-title{
+        position: relative;
+        font-family: 'Source Sans Pro', sans-serif;
+        color: #05386B;
+        font-size: 20px;
+        margin: auto 10px;
+        float: left;
     }
 }
