@@ -45,7 +45,6 @@ if DEBUG == True:
 else:
     ALLOWED_HOSTS = ["sethangell.com"]
 
-
 # Application definition
 
 INSTALLED_APPS = [
