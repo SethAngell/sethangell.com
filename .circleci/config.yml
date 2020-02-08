@@ -52,4 +52,3 @@ workflows:
             branches:
               ignore:
                 - develop
-                - /sa-1-.*/
