@@ -1,0 +1,764 @@
+/* ========== BEGIN HOMEPAGE CSS ========== */
+.nice-to-meet-you{
+    /* Screen size specific */
+    float: left;
+    position: fixed;
+    left: 0;
+    top:0;
+    width:50%;
+    height:100%;
+
+    display: inline-block;
+    background-color: #5CDB95;
+    background-image: url('../assets/ILMOverlay.png');
+    background-size: auto 125%;
+
+
+}
+
+.ntmy-main{
+    /* Screen size specific */
+    margin: 0;
+    position: relative;
+    top: 50%;
+    transform: translateY(-60%); /*Figure out what this does? */
+
+}
+
+.ntmy-headshot{
+    display: block;
+    margin: auto;
+    width: 250px;
+    height: 250px;
+    border-radius: 200px;
+    box-shadow: 0 5px 10px #379683;
+
+}
+
+.ntmy-headshot-image{
+    border-radius: 200px;
+    width: 100%;
+}
+
+.ntmy-pitch{
+    max-width: 550px;
+    padding: 0 40px;
+    display: block;
+    margin: 10px auto auto auto;
+    text-align: center;
+}
+
+
+
+.ntmy-collab-and-coffee{
+    /* container styling */
+    border: solid #05386B 2px;
+    border-radius: 10px;
+    height: 30px;
+    width: 200px;
+
+    /* Interior Positioning */
+    padding: 11px 24px;
+
+    /* Screen Positioning */
+    margin: 40px auto auto auto;
+    display: block;
+    position: relative;
+
+    /* Text Styling */
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #05386B;
+    font-size: 20px;
+    text-decoration: none;
+    line-height: 30px;
+
+}
+
+.ntmy-collab-and-coffee::after{
+    vertical-align: middle;
+    float: right;
+    content: "\f0f4";
+    font-family: "FontAwesome";
+    font-size: 16px;
+}
+
+.ntmy-collab-and-coffee:hover{
+    /* container styling */
+    border: solid #05386B 2px;
+    border-radius: 10px;
+    height: 30px;
+    width: 200px;
+    background: #05386B;
+
+    /* Interior Positioning */
+    padding: 11px 24px;
+
+    /* Screen Positioning */
+    margin: 40px auto auto auto;
+    display: block;
+    position: relative;
+
+    /* Text Styling */
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #ffffff;
+    font-size: 20px;
+    text-decoration: none;
+    line-height: 30px;
+}
+
+.ntmy-social-container{
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+}
+
+.ntmy-site-link-container{
+        position: absolute;
+        left: 20px;
+        bottom: 10px;
+}
+
+a.ntmy-site-link{
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #05386B;
+    height: 25px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    opacity: 1;
+}
+
+a.ntmy-site-link:hover{
+    opacity: .75;
+}
+
+a.ntmy-social-link{
+    font-size: 24px;
+    text-decoration:none;
+    opacity: 1;
+    color: #05386B;
+    padding: 0 3px;
+    transition: border 0.1s linear, color 0.1s linear, background-color 0.1s linear;
+}
+
+a.ntmy-social-link:hover{
+    opacity: .75;
+}
+
+.let-me-introduce-myself{
+    /* Screen size specific */
+    float: right;
+    position: fixed;
+    right: 0;
+    top:0;
+    width: 45%;
+    height:100%;
+    display: inline-block;
+    padding: 20px;
+
+    color: #ffffff;
+
+    /* Scrolling software */
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
+
+}
+
+.lmim-bio{
+    clear: both;
+    display: block;
+    margin: 40px 0 0 0;
+    overflow: auto;
+}
+
+.lmim-copy{
+    float: left;
+    width: 75%;
+    max-width: 500px;
+    line-height: 26px;
+
+}
+
+.lmim-experience{
+    clear: both;
+    display: block;
+    margin: 40px 0 0 0;
+    overflow: visible;
+}
+
+.lmim-job,.lmim-job-first{
+    margin-left: 110px;
+    float: left;
+    max-width: 500px;
+    margin-bottom: 20px;
+    width: 75%;
+}
+
+.lmim-job-first{
+    margin-left: 0;
+}
+
+.lmim-job-byline{
+    clear:both;
+}
+
+.lmim-job-copy{
+    margin: 4px 0 0 0;
+    float: left;
+    max-width: 500px;
+    line-height: 26px;
+}
+
+.lmim-these-are-a-few{
+    clear: both;
+    display: block;
+    margin: 40px 0 0 0;
+    overflow: visible;
+}
+
+.lmim-few-of-list{
+    margin: 0 0 40px 0;
+    float: left;
+    max-width: 500px;
+    padding: 0;
+    list-style-type: none;
+}
+
+.lmim-list-item{
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #05386B;
+
+    /* Text Centering */
+    height: 25px;
+    vertical-align: middle;
+
+    font-size: 20px;
+    clear: both;
+    float: left;
+    /*margin: 5px 30px 0 0;*/
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.lmim-few-of-left{
+    float: left;
+}
+
+.lmim-few-of-right{
+    margin: 0 0 0 20px;
+    float: right;
+}
+
+img.icons{
+    width: 18px;
+    height: 18px;
+}
+
+
+h1.lmim-header{
+    clear: both;
+    float: left;
+    width: 80px;
+    margin: 5px 30px 0 0;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #05386B;
+}
+
+h3.lmim-job-company{
+    float: left;
+    margin: 5px 30px 0 0;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #05386B;
+}
+
+h3.lmim-job-timeline{
+    float: right;
+    margin: 5px 0 0 0;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #05386B;
+    z-index: 1;
+}
+
+h2.lmim-job-title{
+    clear: both;
+    float: left;
+    margin: 5px 30px 0 0;
+    font-size: 18px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #05386B;
+}
+
+    span.content-title{
+        position: relative;
+        font-family: 'Source Sans Pro', sans-serif;
+        color: #05386B;
+        font-size: 35px;
+        margin: auto 10px;
+        float: left;
+    }
+
+
+@media screen and (max-width: 1020px){
+        h1.lmim-header {
+        clear: both;
+        float: none;
+        width: 100%;
+        margin: 0 0 20px 0;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: #05386B;
+    }
+
+    h3.lmim-job-company{
+        float: left;
+        margin: 5px 30px 0 0;
+        text-transform: uppercase;
+
+    }
+
+    h3.lmim-job-timeline{
+        float: right;
+        margin: 5px 0 0 0;
+        z-index: 1;
+    }
+
+    h2.lmim-job-title{
+        clear: both;
+        margin: 5px 30px 0 0;
+    }
+
+    .ntmy-main{
+        margin: 0;
+        position: relative;
+        top: 50%;
+        transform: translateY(-60%); /*Figure out what this does? */
+    }
+
+    .nice-to-meet-you{
+        float: left;
+        position: fixed;
+        left: 0;
+        top:0;
+        width:50%;
+        height:100%;
+
+        display: inline-block;
+        background-color: #5CDB95;
+        background-image: url('../assets/ILMOverlay.png');
+        background-size: auto 125%;
+    }
+
+    .ntmy-headshot{
+        display: block;
+        margin: auto;
+        width: 170px;
+        height: 170px;
+        border-radius: 200px;
+        box-shadow: 0 5px 10px #379683;
+    }
+
+    .ntmy-headshot-image{
+        border-radius: 200px;
+        width: 100%;
+        display: block;
+        margin: auto;
+        height: 170px;
+
+    }
+
+    .ntmy-pitch{
+        max-width: 550px;
+        padding: 0 30px;
+        display: block;
+        margin: 10px auto auto auto;
+        text-align: center;
+    }
+
+    .ntmy-social-container{
+        position: absolute;
+        right: 20px;
+        bottom: 10px;
+    }
+
+    .ntmy-site-link-container{
+        position: absolute;
+        left: 20px;
+        bottom: 10px;
+    }
+
+
+    /* Let Me Introduce Myself */
+    .let-me-introduce-myself {
+        display: inline-block;
+        padding: 20px;
+        /* Screen size specific */
+        float: right;
+        position: relative;
+        right: 0;
+        top:0;
+        width: 45%;
+        height:100%;
+
+        color: #ffffff;
+
+        /* Scrolling software */
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
+        overflow-x: hidden;
+
+    }
+
+
+    .lmim-bio {
+        clear: both;
+        display: block;
+        margin: 40px 0 0 0;
+        overflow: auto;
+    }
+
+    .lmim-copy {
+        float: left;
+        width: 100%;
+        max-width: 439px;
+        line-height: 26px;
+    }
+
+    a{
+        transition: border 0.1s linear, color 0.1s linear, background-color 0.1s linear;
+    }
+
+    a.ntmy-social-link:hover{
+        opacity: .75;
+    }
+
+    .ntmy-collab-and-coffee{
+        /* container styling */
+        border: solid #05386B 2px;
+        border-radius: 10px;
+        height: 25px;
+        width: 150px;
+
+        /* Interior Positioning */
+        padding: 8px 21px;
+
+        /* Screen Positioning */
+        margin: 20px auto auto auto;
+        display: block;
+        position: relative;
+
+        /* Text Styling */
+        font-family: 'Source Sans Pro', sans-serif;
+        color: #05386B;
+        font-size: 15px;
+        text-decoration: none;
+        line-height: 25px;
+
+    }
+
+    .ntmy-collab-and-coffee::after{
+        vertical-align: middle;
+        float: right;
+        content: "\f0f4";
+        font-family: "FontAwesome";
+        font-size: 14px;
+    }
+
+    .ntmy-collab-and-coffee:hover{
+        /* container styling */
+        border: solid #05386B 2px;
+        border-radius: 10px;
+        height: 25px;
+        width: 150px;
+        background: #05386B;
+
+        /* Interior Positioning */
+        padding: 8px 21px;
+
+        /* Screen Positioning */
+        margin: 20px auto auto auto;
+        display: block;
+        position: relative;
+
+        /* Text Styling */
+        font-family: 'Source Sans Pro', sans-serif;
+        color: #ffffff;
+        font-size: 15px;
+        text-decoration: none;
+        line-height: 25px;
+    }
+
+    .lmim-job,.lmim-job-first{
+        margin-left: 0;
+        float: left;
+        max-width: 500px;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .lmim-job-first{
+        margin-left: 0;
+    }
+
+    .lmim-these-are-a-few {
+        clear: both;
+        display: block;
+        margin: 40px 0 0 0;
+        overflow: visible;
+    }
+
+    .lmim-few-of-list {
+        margin: 0 0 40px 0;
+    }
+
+    .lmim-list-item{
+        font-family: 'Source Sans Pro', sans-serif;
+        color: #05386B;
+
+        /* Text Centering */
+        height: 25px;
+        vertical-align: middle;
+
+        font-size: 18px;
+        clear: both;
+        float: left;
+        /*margin: 5px 30px 0 0;*/
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+}
+
+@media screen and (max-width: 767px){
+    h2.lmim-job-company{
+        float: left;
+        margin: 5px 30px 0 0;
+        font-size: 12px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: #05386B;
+    }
+
+    h2.lmim-job-timeline{
+        float: right;
+        margin: 5px 0 0 0;
+        font-size: 12px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: #05386B;
+        z-index: 1;
+    }
+
+    h2.lmim-job-title{
+        clear: both;
+        margin: 5px 30px 0 0;
+        font-size: 15px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: #05386B;
+    }
+
+    .ntmy-main{
+        width: 100%;
+        margin: 40px 0 0 0;
+        position: relative;
+        transform: none; /*Figure out what this does? */
+        text-align: center;
+    }
+
+    .nice-to-meet-you{
+        display: inline-block;
+        position: relative;
+        width: 100%;
+        min-height: 490px;
+        background-color: #5CDB95;
+        background-image: url('../assets/ILMOverlay.png');
+        background-size: auto 125%;
+    }
+
+    .ntmy-headshot{
+        display: block;
+        margin: auto;
+        width: 170px;
+        height: 170px;
+        border-radius: 200px;
+        box-shadow: 0 5px 10px #379683;
+    }
+
+    .ntmy-headshot-image{
+        border-radius: 200px;
+        width: 100%;
+        display: block;
+        margin: auto;
+        height: 170px;
+
+    }
+
+    .ntmy-pitch{
+        max-width: 550px;
+        padding: 0 30px;
+        display: block;
+        margin: 10px auto auto auto;
+        text-align: center;
+    }
+
+    .ntmy-social-container{
+        position: absolute;
+        right: 20px;
+        bottom: 10px;
+    }
+
+
+    /* Let Me Introduce Myself */
+    .let-me-introduce-myself {
+        display: inline-block;
+        padding: 20px;
+        /* Screen size specific */
+        float: none;
+        position: relative;
+        right: 0;
+        top:0;
+        width: 100%;
+        max-width: 767px;
+        height:100%;
+
+        color: #ffffff;
+
+        /* Scrolling software */
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
+        overflow-x: hidden;
+
+        /* fixing the overflow */
+         box-sizing:border-box;  /** add this **/
+        -moz-box-sizing:border-box; /** add this **/
+        -webkit-box-sizing:border-box; /** add this **/
+    }
+
+    h2.lmim-header {
+        clear: both;
+        float: none;
+        width: 100%;
+        margin: 0 0 20px 0;
+        font-size: 18px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: #05386B;
+    }
+
+    .lmim-bio {
+        clear: both;
+        display: block;
+        margin: 40px 0 0 0;
+        overflow: auto;
+    }
+
+    .lmim-copy {
+        float: left;
+        width: 100%;
+        max-width: 760px;
+        line-height: 26px;
+    }
+
+    a{
+        transition: border 0.1s linear, color 0.1s linear, background-color 0.1s linear;
+    }
+
+    a.ntmy-social-link:hover{
+        opacity: .75;
+    }
+
+    .ntmy-collab-and-coffee{
+        /* container styling */
+        border: solid #05386B 2px;
+        border-radius: 10px;
+        height: 25px;
+        width: 150px;
+
+        /* Interior Positioning */
+        padding: 8px 21px;
+
+        /* Screen Positioning */
+        margin: 20px auto auto auto;
+        display: block;
+        position: relative;
+
+        /* Text Styling */
+        font-family: 'Source Sans Pro', sans-serif;
+        color: #05386B;
+        font-size: 15px;
+        text-decoration: none;
+        line-height: 25px;
+
+    }
+
+    .ntmy-collab-and-coffee::after{
+        vertical-align: middle;
+        float: right;
+        content: "\f0f4";
+        font-family: "FontAwesome";
+        font-size: 14px;
+    }
+
+    .ntmy-collab-and-coffee:hover{
+        /* container styling */
+        border: solid #05386B 2px;
+        border-radius: 10px;
+        height: 25px;
+        width: 150px;
+        background: #05386B;
+
+        /* Interior Positioning */
+        padding: 8px 21px;
+
+        /* Screen Positioning */
+        margin: 20px auto auto auto;
+        display: block;
+        position: relative;
+
+        /* Text Styling */
+        font-family: 'Source Sans Pro', sans-serif;
+        color: #ffffff;
+        font-size: 15px;
+        text-decoration: none;
+        line-height: 25px;
+    }
+
+    .lmim-job,.lmim-job-first{
+        margin-left: 0;
+        float: left;
+        max-width: 760px;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .lmim-job-first{
+        margin-left: 0;
+    }
+
+    .lmim-these-are-a-few {
+        clear: both;
+        display: block;
+        margin: 40px 0 0 0;
+        overflow: visible;
+    }
+
+    .lmim-few-of-list {
+        margin: 0 0 40px 0;
+    }
+
+
+    .lmim-job-copy{
+        margin: 4px 0 0 0;
+        float: left;
+        max-width: 767px;
+        line-height: 26px;
+    }
+
+}
