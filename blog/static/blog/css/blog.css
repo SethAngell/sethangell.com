@@ -137,6 +137,11 @@ a.content-links:hover{
     float: right;
 }
 
+.img.confused-travolta{
+    display: block;
+    margin: 10px auto -15px auto;
+}
+
 @media screen and (max-width: 1020px) {
     .blog_container {
         width: 90%;
@@ -178,6 +183,12 @@ a.content-links:hover{
     li.blog_text{
         font-size: 16px;
         color: #05386B;
+    }
+
+    .img.confused-travolta{
+        display: block;
+        margin: 10px auto -15px auto;
+        width: 90%;
     }
 
 }

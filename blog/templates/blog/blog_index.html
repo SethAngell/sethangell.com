@@ -22,7 +22,7 @@
     </div>
 
     <div class="blog_container">
-    {% if blog_posts != none %}
+    {% if blog_posts.count != 0 %}
         {% for blog in blog_posts %}
         <a class="blog_title_link" href="{%  url 'article_detail' blog.slug %}">{{ blog.title }}</a>
         {% if blog.created_date == blog.updated %}
@@ -34,7 +34,8 @@
         <hr>
     {% endfor %}
     {% else %}
-        <div class="code_snippet">
+        <img class="confused-travolta" src="{% static 'blog/Assets/7VE.gif' %}" alt="A very confused travolta">
+        <div class="code_snippet" style="z-index: 2">
             <p class="code">$ python3 check_for_blog_posts.py</p>
             <p class="code">$ hmmm, nothing here. Check back later!</p>
         </div>
