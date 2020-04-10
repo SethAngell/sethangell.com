@@ -21,7 +21,8 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('dontphishme/', admin.site.urls),
     path('', include('home.urls')),
-    path('blog/', include('blog.urls'))
+    path('blog/', include('blog.urls')),
+    path('podcast/', include('podcast.urls')),
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

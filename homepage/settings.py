@@ -32,7 +32,7 @@ else:
 
 # SECURITY WARNING: keep the secret key used in production secret!
 if DEBUG == True:
-    ENVVars = open(os.getcwd()+'/homepage/PreEnvVariables.txt', "r")
+    ENVVars = open(os.path.join(os.getcwd()+'/homepage/PreEnvVariables.txt'))
     Var_List = []
     for x in ENVVars:
         Var_List.append(x.strip("\n"))
@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home', # resume/portfolio location
     'blog', # Blog locations
+    'podcast', # podcast library
 ]
 
 MIDDLEWARE = [

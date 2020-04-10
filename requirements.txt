@@ -1,8 +1,12 @@
+bleach==3.1.4
 Django==2.2.6
+django-applepodcast==0.3.7
 gunicorn==20.0.0
 mock==3.0.5
+mutagen==1.44.0
 Pillow==6.2.0
 psycopg2-binary==2.8.4
 pytz==2019.3
 six==1.13.0
 sqlparse==0.3.0
+webencodings==0.5.1

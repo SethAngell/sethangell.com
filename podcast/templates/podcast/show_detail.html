@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% load i18n staticfiles podcast_tags %}
+
+
+{% block title %}{{ show.title }} &#183; {{ block.super }}{% endblock %}
+
+
+{% block feed %}
+<link rel="alternate" type="application/rss+xml" href="{{ show.get_absolute_feed_url }}" title="{{ show.title }}">
+{% endblock %}
+
+
+{% block content %}
+
+{% get_podcast_singular as podcast_singular %}
+
+{% if not podcast_singular %}
+    <ul>
+        <li><a href="{% url 'podcast:show_list' %}">{% trans 'Podcasts' %}</a></li>
+    </ul>
+{% endif %}
+
+<h1>{{ show.title }}</h1>
+
+<p><a href="{{ show.get_image_url }}"><img src="{{ show.get_image_url }}" alt="{{ show.title }} artwork" width="300"></a></p>
+
+{% if show.description %}
+<p>{{ show.description }}</p>
+{% endif %}
+
+{% if show.apple %}<p><a href="{{ show.apple }}"><img src="{% static 'podcast/img/badge.svg' %}" alt="{% trans 'Listen on Apple Podcasts' %}"></a></p>{% endif %}
+<p><a href="{{ show.get_absolute_feed_url }}" title="Really Simple Syndication">{% trans 'Subscribe to RSS' %}</a></p>
+
+{% if episode_list %}
+
+    <h2>{% trans 'Episodes' %}</h2>
+
+    {% blocktrans count episode_count=page_obj.paginator.count %}
+    <p>{{ episode_count }} episode</p>
+    {% plural %}
+    <p>{{ episode_count }} episodes</p>
+    {% endblocktrans %}
+
+    {% for episode in episode_list %}
+        <h3><a href="{{ episode.get_absolute_url }}">{{ episode.title }}</a></h3>
+        <p>{% trans 'Episode' %} {{ episode.index }}</p>
+        <p><time datetime="{{ episode.pub_date|date:'c' }}" title="{{ episode.pub_date|date:'c' }}">{{ episode.pub_date|date:'j F Y' }}</time></p>
+        {% if episode.description %}
+        <p>{{ episode.description|safe }}</p>
+        {% endif %}
+    {% endfor %}
+
+    {% include 'podcast/pagination.html' %}
+
+{% endif %}
+
+{% endblock %}

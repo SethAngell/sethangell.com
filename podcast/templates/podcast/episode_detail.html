@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% load i18n staticfiles podcast_tags %}
+
+
+{% block title %}{{ episode.title }} &#183; {{ block.super }}{% endblock %}
+
+
+{% block feed %}
+<link rel="alternate" type="application/rss+xml" href="{{ episode.show.get_absolute_feed_url }}" title="{{ episode.show.title }}">
+{% endblock %}
+
+{% block extra_head %}
+<meta property="og:title" content="{{ episode.title }}">
+{% if episode.enclosure %}
+{% with enclosure=episode.enclosure %}
+    <meta property="og:type" content="{% if enclosure.is_audio %}music.song{% elif enclosure.is_video %}video.other{% endif %}">
+    <meta property="og:image" content="{{ enclosure.get_poster_url }}">
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <meta property="og:description" content="{{ episode.description|striptags }}">
+    <meta property="og:{% if enclosure.is_audio %}audio{% elif enclosure.is_video %}video{% endif %}" content="http{% if request.is_secure %}s{% endif %}://{{ request.get_host }}{{ episode.get_absolute_download_url }}">
+    <meta property="og:{% if enclosure.is_audio %}audio{% elif enclosure.is_video %}video{% endif %}:type" content="{{ enclosure.type }}">
+{% endwith %}
+{% endif %}
+{% if episode.is_secret %}
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+{% endif %}
+{% endblock %}
+
+
+{% block content %}
+
+{% get_podcast_singular as podcast_singular %}
+
+<ul>
+    {% if not podcast_singular %}
+    <li><a href="{% url 'podcast:show_list' %}">{% trans 'Podcasts' %}</a></li>
+    {% endif %}
+    <li><a href="{{ episode.show.get_absolute_url }}">{{ episode.show.title }}</a></li>
+</ul>
+
+<h1>{{ episode.title }}</h1>
+
+<p>{% trans 'Episode' %} {{ episode.index }}</p>
+
+<p><time datetime="{{ episode.pub_date|date:'c' }}" title="{{ episode.pub_date|date:'c' }}">{{ episode.pub_date|date:'j F Y' }}</time></p>
+
+{% if episode.description %}
+<p>{{ episode.description|safe }}</p>
+{% endif %}
+
+{% if episode.enclosure %}
+{% with enclosure=episode.enclosure %}
+
+    {# Audio #}
+    {% if enclosure.is_audio %}
+    <audio src="{{ episode.get_absolute_download_url }}" controls>
+        <p><a href="{{ episode.get_absolute_download_url }}">{% trans 'Download the audio' %}</a>.</p>
+    </audio>
+    <p>{{ enclosure.get_duration }}</p>
+
+    {# Video #}
+    {% elif enclosure.is_video %}
+    <video poster="{{ enclosure.get_poster_url }}" controls>
+        <source src="{{ episode.get_absolute_download_url }}" type="{{ enclosure.type }}">
+        <p><a href="{{ episode.get_absolute_download_url }}">{% trans 'Download the video' %}</a>.</p>
+    </video>
+    <p>{{ enclosure.get_duration }}</p>    
+    {% endif %}
+
+    <p><a href="{{ episode.get_absolute_download_url }}">{% trans 'Download the' %} {{ enclosure.get_megabytes }} {% trans 'MB' %} {{ enclosure.get_type_display }}</a>.</p>
+
+{% endwith %}
+{% endif %}
+
+{% if episode.show.apple %}<p><a href="{{ episode.show.apple }}"><img src="{% static 'podcast/img/badge.svg' %}" alt="{% trans 'Listen on Apple Podcasts' %}"></a></p>{% endif %}
+<p><a href="{{ episode.show.get_absolute_feed_url }}" title="Really Simple Syndication">{% trans 'Subscribe to RSS' %}</a></p>
+
+{% if episode.get_previous or episode.get_next %}
+<ul>
+    {% if episode.get_next %}
+    <li><a href="{{ episode.get_next.get_absolute_url }}">&larr; {% trans 'Episode' %} {{ episode.index_next }}: {{ episode.get_next.title }}</a></li>
+    {% endif %}
+    {% if episode.get_previous %}
+    <li><a href="{{ episode.get_previous.get_absolute_url }}">{% trans 'Episode' %} {{ episode.index_previous }}: {{ episode.get_previous.title }} &rarr;</a></li>
+    {% endif %}
+</ul>
+{% endif %}
+
+{% endblock %}
