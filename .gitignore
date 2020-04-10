@@ -297,6 +297,7 @@ pyvenv.cfg
 .venv
 env/
 venv/
+webenv/
 ENV/
 env.bak/
 venv.bak/
