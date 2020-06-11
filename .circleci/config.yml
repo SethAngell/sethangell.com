@@ -50,6 +50,5 @@ workflows:
             - build
           filters:
             branches:
-              ignore:
-                - develop
-                - development
+              only:
+                - master

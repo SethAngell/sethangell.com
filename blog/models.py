@@ -32,3 +32,13 @@ class BlogPost(models.Model):
         if not self.slug:
             self.slug = slugify(self.title)
         return super().save(*args, **kwargs)
+
+class PostImage(models.Model):
+    post = models.ForeignKey(BlogPost, on_delete=models.CASCADE, related_name="images")
+    reference = models.TextField(blank=False)
+    alt_text = models.TextField(blank=False)
+    image = models.ImageField()
+
+    def __str__(self):
+        return self.reference
+
