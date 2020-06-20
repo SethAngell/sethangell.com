@@ -17,14 +17,14 @@ p.blog_text{
 }
 
 p.date-detail{
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Rubik', sans-serif;
     text-transform: uppercase;
     font-size: 16px;
     margin: 10px 0 20px 0;
 }
 
 p.date-index{
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Rubik', sans-serif;
     text-transform: uppercase;
     font-size: 16px;
     margin: 5px 0 5px 0;
@@ -35,7 +35,7 @@ hr{
 }
 
 a.blog_title_link{
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Rubik', sans-serif;
     color: #05386B;
     font-size: 35px;
     opacity: 1;
@@ -48,10 +48,10 @@ a.blog_title_link:hover{
 }
 
 ul.blog_text{
-    font-family: 'literata', serif;
+    font-family: 'Karla', serif;
 }
 ol.blog_text{
-    font-family: 'literata', serif;
+    font-family: 'Karla', serif;
 }
 
 b.blog_text{
@@ -73,14 +73,14 @@ a.blog_text:visited{
 }
 
 p.code{
-    font-family: 'Source Code Pro', monospace;
+    font-family: 'Fira Code', monospace;
     font-size: 14px;
     color: #5CDB95
 }
 
 a.content-links{
     position: relative;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Rubik', sans-serif;
     color: #05386B;
     font-size: 20px;
     margin: auto 25px;
@@ -122,7 +122,7 @@ a.content-links:hover{
 }
 
 .nav-bar-item{
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Rubik', sans-serif;
     font-size: 18px;
     text-decoration:none;
     opacity: 1;
@@ -154,11 +154,13 @@ a.content-links:hover{
     }
 
 img.blog_image{
-    padding-top: 10px;
     margin: auto;
     display: block;
     max-width: 100%;
     object-fit: contain;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    border: 1px solid #eee;
+    border-radius: 25px;
 
 }
 
@@ -193,12 +195,12 @@ img.blog_image{
     }
 
     ul.blog_text{
-        font-family: 'literata', serif;
+        font-family: 'Karla', serif;
         font-size: 16px;
     }
 
     ol.blog_text{
-        font-family: 'literata', serif;
+        font-family: 'Karla', serif;
         font-size: 16px;
     }
 
@@ -223,7 +225,7 @@ img.blog_image{
 
     a.content-links{
         position: relative;
-        font-family: 'Source Sans Pro', sans-serif;
+        font-family: 'Karla', sans-serif;
         color: #05386B;
         font-size: 12px;
         margin: auto 10px;

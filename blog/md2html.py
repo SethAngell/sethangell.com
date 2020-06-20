@@ -134,7 +134,7 @@ def section_to_div(sections: deque) -> deque:
             alt_pattern = "\[(.*?)\]"
             reference = re.search(ref_pattern, full_line).group(1)
             alt_text = re.search(alt_pattern, full_line).group(1)
-            return f'<img class="blog_image" src="/media/blog_images/{reference}.png" alt="{alt_text}">'
+            return f'<img class="blog_image" src="/media/blog_images/{reference}.png" alt="{alt_text}"><br>'
         elif re.search("^[0-9]+[.]", chunk_to_parse):
             parsed_string.pop(0)
             return f'<li class=\"blog_text\">{md_style_to_html(" ".join(parsed_string))}</li>'

@@ -9,15 +9,14 @@
 
 {% load static %}
 
-
 h1{
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Rubik', sans-serif;
     color: #05386B;
     font-size: 35px;
 }
 
 h2{
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Rubik', sans-serif;
     color: #05386B;
     font-size: 20px;
 }
@@ -27,11 +26,11 @@ h3{
     letter-spacing: 1px;
     color: #05386B;
     text-transform: uppercase;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Rubik', sans-serif;
 }
 
 p{
-    font-family: 'literata', serif;
+    font-family: 'Karla', serif;
     color: #05386B;
     font-size: 15px;
     margin: 0;
@@ -60,7 +59,7 @@ a{
     }
 span.content-title{
         position: relative;
-        font-family: 'Source Sans Pro', sans-serif;
+        font-family: 'Rubik', sans-serif;
         color: #05386B;
         font-size: 20px;
         margin: auto 10px;
@@ -83,7 +82,7 @@ span.content-title{
 @media screen and (max-width: 1020px) {
 
     h1{
-        font-family: 'Source Sans Pro', sans-serif;
+        font-family: 'Rubik', sans-serif;
         color: #05386B;
         font-size: 22px;
     }
@@ -93,7 +92,7 @@ span.content-title{
         letter-spacing: 1px;
         color: #05386B;
         text-transform: uppercase;
-        font-family: 'Source Sans Pro', sans-serif;
+        font-family: 'Rubik', sans-serif;
     }
 
     h3{
@@ -101,7 +100,7 @@ span.content-title{
         letter-spacing: 1px;
         color: #05386B;
         text-transform: uppercase;
-        font-family: 'Source Sans Pro', sans-serif;
+        font-family: 'Rubik', sans-serif;
     }
 
     /* =========== BEGIN NAVBAR CSS =========== */
@@ -124,7 +123,7 @@ span.content-title{
 @media screen and (max-width: 767px) {
 
     h1{
-        font-family: 'Source Sans Pro', sans-serif;
+        font-family: 'Rubik', sans-serif;
         color: #05386B;
         font-size: 22px;
     }
@@ -145,7 +144,7 @@ span.content-title{
     }
 
     .nav-bar-item{
-        font-family: 'Source Sans Pro', sans-serif;
+        font-family: 'Rubik', sans-serif;
         font-size: 18px;
         text-decoration:none;
         opacity: 1;
@@ -174,7 +173,7 @@ span.content-title{
 
     span.content-title{
         position: relative;
-        font-family: 'Source Sans Pro', sans-serif;
+        font-family: 'Rubik', sans-serif;
         color: #05386B;
         font-size: 20px;
         margin: auto 10px;
