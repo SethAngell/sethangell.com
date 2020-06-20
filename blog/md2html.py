@@ -118,21 +118,29 @@ def section_to_div(sections: deque) -> deque:
         "p":    ("<p class=\"blog_text\">", "</p>"),
         "*":    ("<li class=\"blog_text\">", "</li>"),
         "n":    ("<li class=\"blog_text\">", "</li>"),
+
     }
-    md_symbol_set = ("#", "##", "###", "*",)
-    stopping_set = ('<h1', '<h2',"<h3", "<p ", "<ol", "<ul")
+    md_symbol_set = ("#", "##", "###", "*")
+    stopping_set = ('<h1', '<h2',"<h3", "<p ", "<ol", "<ul", "<im")
 
     def md_type_identifier(chunk_to_parse: str) -> str:
         parsed_string = chunk_to_parse.split(" ")
         if parsed_string[0] in md_symbol_set:
             md_symbol = parsed_string.pop(0)
             return f'{html_conversion_dict[md_symbol][0]}{md_style_to_html(" ".join(parsed_string))}{html_conversion_dict[md_symbol][1]}'
+        elif parsed_string[0][0] == '!':
+            full_line = " ".join(parsed_string)
+            ref_pattern = "\((.*?)\)"
+            alt_pattern = "\[(.*?)\]"
+            reference = re.search(ref_pattern, full_line).group(1)
+            alt_text = re.search(alt_pattern, full_line).group(1)
+            return f'<img class="blog_image" src="/media/blog_images/{reference}.png" alt="{alt_text}">'
+        elif re.search("^[0-9]+[.]", chunk_to_parse):
+            parsed_string.pop(0)
+            return f'<li class=\"blog_text\">{md_style_to_html(" ".join(parsed_string))}</li>'
         else:
-            if re.search("^[0-9]+[.]", chunk_to_parse):
-                parsed_string.pop(0)
-                return f'<li class=\"blog_text\">{md_style_to_html(" ".join(parsed_string))}</li>'
-            else:
-                return f'<p class=\"blog_text\">{md_style_to_html(" ".join(parsed_string))}</p>'
+            return f'<p class=\"blog_text\">{md_style_to_html(" ".join(parsed_string))}</p>'
+
 
 
     current_section = sections.popleft()

@@ -1,11 +1,12 @@
 from django.test import TestCase
-from .models import BlogPost
+from .models import BlogPost, PostImage
 
 # Create your tests here.
 class BlogPostTestCase(TestCase):
 
 
     file_test_post = open("./test_content/SampleHeaderPost.txt")
+    file_test_image = "./test_content/test_avatar.jpg"
     test_post = ""
     test_title = "Sample Header post"
     for line in file_test_post:
@@ -33,4 +34,5 @@ class BlogPostTestCase(TestCase):
     def test_slugify_success(self):
         penultimate_post = BlogPost.objects.get(slug="sample-header-post")
         self.assertEqual(penultimate_post.slug, self.test_title.lower().replace(" ", "-"))
+
 

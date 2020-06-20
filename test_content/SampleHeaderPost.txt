@@ -14,3 +14,4 @@ Here is the list:
 In the middle of this sentence, I've place a link to my [website](sethangell.com). In fact its on the word website. Heres another test which the link is placed at the end of the file, just to make sure that doesnt cause any issues: [click here if you hate being productive](reddit.com)
 ### This is a header to see if I can simply add in additional ones
 wonder if it worked?
+![A developer's profile picture](ProfilePicture)

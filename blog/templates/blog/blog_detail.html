@@ -25,7 +25,9 @@
         {% else %}
             <p class="date-detail">Posted: {{ blog_post.created_date }} | Updated: {{ blog_post.updated }}</p>
         {% endif %}
-        {{ blog_post.html_body | safe }}
+        {% autoescape off %}
+            {{ blog_post.html_body | safe }}
+        {% endautoescape %}
         <br>
         <br>
     </div>

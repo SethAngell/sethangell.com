@@ -153,6 +153,15 @@ a.content-links:hover{
         position: absolute;
     }
 
+img.blog_image{
+    padding-top: 10px;
+    margin: auto;
+    display: block;
+    max-width: 100%;
+    object-fit: contain;
+
+}
+
 @media screen and (max-width: 1020px) {
     .blog_container {
         width: 90%;
