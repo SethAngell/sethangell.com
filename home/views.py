@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import LandingPage, Experience
 from django.db.models import Case, When
+from blog.models import BlogPost
 
 # Create your views here.
 
@@ -19,11 +20,11 @@ def Homepage(request):
     ).order_by(
         '-past_job',
         '-current_job',
-
-
     )
+    recent_post = BlogPost.objects.latest('created_date')
     context = {
         "info": info,
-        "experience": experience
+        "experience": experience,
+        "blog": recent_post
     }
     return render(request, "home/home.html", context)

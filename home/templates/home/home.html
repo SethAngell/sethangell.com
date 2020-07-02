@@ -27,6 +27,14 @@
             <a class="ntmy-site-link" href={% url 'blog_index' %}>blog</a>
         </div>
     </div>
+    <div class="ntmy-top-blog">
+            <img class="ntmy-top-blog-image" src="{{ blog.thumbnail.url }}" alt="Blog header image relating to {{ blog.title }}">
+            <div class="ntmy-top-blog-info">
+                <h2>{{ blog.title }}</h2>
+                <hr>
+                <p>{{ blog.preview }}</p>
+            </div>
+        </div>
     <div class="let-me-introduce-myself">
         <div class="lmim-bio">
             <h1 class="lmim-header">Let's talk:</h1>

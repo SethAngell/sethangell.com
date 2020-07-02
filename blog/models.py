@@ -17,6 +17,7 @@ class BlogPost(models.Model):
     slug = models.SlugField(null=False, unique=True, blank=True, max_length=256)
     created_date = models.DateField(auto_now_add=True, blank=True)
     updated = models.DateField(auto_now=True, blank=True)
+    thumbnail = models.ImageField(upload_to='thumbnail_images', blank=True)
 
     def __str__(self):
         return self.title
