@@ -12,7 +12,7 @@ db.sqlite3-journal
 media
 
 ## SQLlite DBs
-mydatabse
+mydatabase
 DevDB
 TestDevDB
 TestProdDB
