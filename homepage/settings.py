@@ -94,14 +94,9 @@ WSGI_APPLICATION = 'homepage.wsgi.application'
 
 if DEBUG == True:
     DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': Var_List[1],
-            'USER': Var_List[2],
-            'PASSWORD': Var_List[3],
-            'HOST': Var_List[4],
-            'PORT': Var_List[5],
-
+        'default' : {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': 'mydatabase'
         }
     }
 

@@ -11,6 +11,10 @@
  */
 
 /* ========== BEGIN HOMEPAGE CSS ========== */
+.body {
+    background-color: #f5f5f5;
+}
+
 .nice-to-meet-you{
     /* Screen size specific */
     float: left;
@@ -178,25 +182,27 @@ a.ntmy-social-link:hover{
     bottom: 10px;
     left: 10px;
     display: flex;
-    flex-direction: column;
-    height: 45%;
-    width: 20%;
+    flex-direction: row;
+    height: 20%;
+    width: 45%;
     border-radius: 30px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    background-color: #ffffff ;
+    /* background-image: linear-gradient(62deg, #a668f7 0%, #7ec5fb 100%);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3); */
 }
 
 img.ntmy-top-blog-image{
-    height: 45%;
-    width: 95%;
+    height: 175px;
+    width: 175px;
     border-radius: 20px;
     object-fit: cover;
-    margin: 7.5px auto;
+    margin: 10px;
 }
 
 .ntmy-top-blog-info{
     height: 60%;
     width: 90%;
-    margin: auto;
+    margin: 0 10px 0 0;
 
 
 

@@ -254,7 +254,7 @@ def on_save_attribute_extraction(md_post: str, title: str) -> dict:
     if len(title) == 0:
         sectioned_post = md_post.split("\n")
 
-        blog_preview = md_stripper(sectioned_post[1])[:100]
+        blog_preview = md_stripper(sectioned_post[1])[:300]
 
         raw_title = sectioned_post.pop(0).split(" ")
         raw_title.pop(0)
@@ -270,7 +270,7 @@ def on_save_attribute_extraction(md_post: str, title: str) -> dict:
     else:
         sectioned_post = md_post.split("\n")
 
-        blog_preview = md_stripper(sectioned_post[0])[:100]
+        blog_preview = md_stripper(sectioned_post[0])[:300]
         sectioned_post = "\n".join(sectioned_post)
 
         attribute_dict = {
