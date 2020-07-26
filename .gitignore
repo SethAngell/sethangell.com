@@ -11,6 +11,12 @@ db.sqlite3
 db.sqlite3-journal
 media
 
+## SQLlite DBs
+mydatabse
+DevDB
+TestDevDB
+TestProdDB
+
 /homepage/PreEnvVariables.txt
 
 # If your build process includes running collectstatic, then you probably don't need or want to include staticfiles/
