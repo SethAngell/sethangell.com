@@ -254,7 +254,7 @@ def on_save_attribute_extraction(md_post: str, title: str) -> dict:
     if len(title) == 0:
         sectioned_post = md_post.split("\n")
 
-        blog_preview = md_stripper(sectioned_post[1])[:300]
+        blog_preview = generate_appropriate_preview(md_stripper(remove_whitespace(sectioned_post)[0]))
 
         raw_title = sectioned_post.pop(0).split(" ")
         raw_title.pop(0)
@@ -270,7 +270,8 @@ def on_save_attribute_extraction(md_post: str, title: str) -> dict:
     else:
         sectioned_post = md_post.split("\n")
 
-        blog_preview = md_stripper(sectioned_post[0])[:300]
+
+        blog_preview = generate_appropriate_preview(md_stripper(remove_whitespace(sectioned_post)[0]))
         sectioned_post = "\n".join(sectioned_post)
 
         attribute_dict = {
@@ -288,6 +289,43 @@ def sanitized_html_for_site(raw_md_post: str) -> str:
     html_string = sections_to_html_string(converted_md_post)
 
     return html_string
+
+def generate_appropriate_preview(preview_block: str) -> str:
+    if len(preview_block) < 350:
+        return preview_block
+    
+    # Generate syntactically complete preview block (thats for sure a word)
+    word_list = preview_block.split(" ")
+    word_builder = " ".join(word_list[:20])
+
+    easy_to_read = False
+    index = 20
+
+    while not easy_to_read:
+        if (index < len(word_list)) and ((len(word_builder) + len(word_list[index])) < 350):
+            word_builder = word_builder + " " + word_list[index]
+        if (index < len(word_list)) and ((len(word_builder) + len(word_list[index])) > 350):
+            word_builder = word_builder + "..."
+            easy_to_read = True
+        elif ((index < len(word_list)) and ((len(word_builder) + len(word_list[index])) >= 350)):
+            word_builder = word_builder + "..."
+            easy_to_read = True
+        elif index > len(word_list):
+            easy_to_read = True
+
+        index += 1
+    
+    return word_builder
+
+def remove_whitespace(split_post:list) -> list:
+    tmp_list = split_post.copy()
+
+    for i in range(0, len(tmp_list)):
+        if tmp_list[i] == "":
+            tmp_list.pop(i)
+    
+    return tmp_list
+
 
 
 # test_stack = text_file_to_stack("SampleHeaderPost_1.txt")

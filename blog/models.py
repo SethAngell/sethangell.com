@@ -13,7 +13,7 @@ class BlogPost(models.Model):
     title = models.CharField(max_length=256, blank=True)
     md_body = models.TextField()
     html_body = models.TextField(blank=True)
-    preview = models.CharField(max_length=300, blank=True)
+    preview = models.CharField(max_length=360, blank=True)
     slug = models.SlugField(null=False, unique=True, blank=True, max_length=256)
     created_date = models.DateField(auto_now_add=True, blank=True)
     updated = models.DateField(auto_now=True, blank=True)
@@ -30,6 +30,7 @@ class BlogPost(models.Model):
 
     def save(self, *args, **kwargs):  # new
         attributes = on_save_attribute_extraction(self.md_body, self.title)
+        print(attributes)
         self.title = attributes["title"]
         self.preview = attributes["preview"]
         self.md_body = attributes["body"]

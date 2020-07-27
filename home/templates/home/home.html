@@ -3,6 +3,7 @@
 {% block section_css %}{% static 'home/css/home.css' %}{% endblock section_css %}
 {% block title %}Seth Angell{% endblock title %}
 {% block content %}
+<div class="ntmy-container">
     <div class="nice-to-meet-you">
         <div class="ntmy-main">
             <div class="ntmy-headshot">
@@ -27,12 +28,17 @@
             <a class="ntmy-site-link" href={% url 'blog_index' %}>blog</a>
         </div>
     </div>
-    <div class="ntmy-top-blog">
-            <img class="ntmy-top-blog-image" src="{{ blog.thumbnail.url }}" alt="Blog header image relating to {{ blog.title }}">
+    <div class="ntmy-top-blogs">
+        {% for post in blog %}
+        <div class="ntmy-blog-container" onclick="document.location='{% url 'article_detail' post.slug %}'">
+            <img class="ntmy-top-blog-image" src="{{ post.thumbnail.url }}" alt="Blog header image relating to {{ post.title }}">
             <div class="ntmy-top-blog-info">
-                <h2>{{ blog.title }}</h2>
-                <p>{{ blog.preview }}</p>
+                <h2>{{ post.title }}</h2>
+                <p>{{ post.preview }}</p>
             </div>
+        </div>
+        {% endfor %}
+        </div>
         </div>
     <div class="let-me-introduce-myself">
         <div class="lmim-bio">

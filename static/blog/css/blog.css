@@ -1,0 +1,287 @@
+h1.blog_text{
+    font-size: 41px;
+    margin: 20px 0 0 0;
+}
+h2.blog_text{
+    font-size: 31px;
+    margin: 5px 0;
+}
+h3.blog_text{
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+p.blog_text{
+    font-size: 21px;
+    padding: 1px;
+}
+
+p.date-detail{
+    font-family: 'Rubik', sans-serif;
+    text-transform: uppercase;
+    font-size: 16px;
+    margin: 10px 0 20px 0;
+}
+
+p.date-index{
+    font-family: 'Rubik', sans-serif;
+    text-transform: uppercase;
+    font-size: 16px;
+    margin: 5px 0 5px 0;
+}
+
+hr{
+    margin: 10% auto;
+}
+
+a.blog_title_link{
+    font-family: 'Rubik', sans-serif;
+    color: #05386B;
+    font-size: 35px;
+    opacity: 1;
+    transition: border 0.5s linear, color 0.5s linear, background-color 0.5s linear;
+    text-decoration: none;
+}
+
+a.blog_title_link:hover{
+    opacity: .75;
+}
+
+ul.blog_text{
+    font-family: 'Karla', serif;
+}
+ol.blog_text{
+    font-family: 'Karla', serif;
+}
+
+b.blog_text{
+
+}
+i.blog_text{
+
+}
+li.blog_text{
+    font-size: 20px;
+    color: #05386B;
+}
+a.blog_text{
+    color: #FD873E;
+}
+
+a.blog_text:visited{
+    color: #c7662a;
+}
+
+p.code{
+    font-family: 'Fira Code', monospace;
+    font-size: 14px;
+    color: #5CDB95
+}
+
+a.content-links{
+    position: relative;
+    font-family: 'Rubik', sans-serif;
+    color: #05386B;
+    font-size: 20px;
+    margin: auto 25px;
+    float: right;
+    text-transform: uppercase;
+    text-decoration: none;
+    opacity: 1;
+    transition: border 0.5s linear, color 0.5s linear, background-color 0.5s linear;
+}
+
+a.content-links:hover{
+    opacity: 0.75;
+}
+
+.code_snippet{
+    padding: 10px;
+    margin: 5px auto;
+    border-radius: 10px;
+    border: 2px solid #1d1e22;
+    background-color: #1d1e22;
+}
+
+.blog_container{
+    width: 750px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.content-header{
+    display: block;
+    position: relative;
+    height: 5em;
+    line-height: 5em;
+    width: 100%;
+    background-color: #FBAB7E;
+    
+    justify-content: center;
+    margin-bottom: 10px;
+
+}
+
+.nav-bar-item{
+    font-family: 'Rubik', sans-serif;
+    font-size: 18px;
+    text-decoration:none;
+    opacity: 1;
+    color: #05386B;
+    padding: 0 10px;
+    transition: border 0.1s linear, color 0.1s linear, background-color 0.1s linear;
+    text-transform: uppercase;
+}
+
+.navbar-text{
+    position: relative;
+    float: right;
+}
+
+.img.confused-travolta{
+    display: block;
+    margin: 10px auto -15px auto;
+}
+
+.code_snippet_404{
+        padding: 10px;
+        margin: -15px auto;
+        width: 750px;
+        border-radius: 10px;
+        border: 2px solid #1d1e22;
+        background-color: #1d1e22;
+        z-index: 2;
+        position: absolute;
+    }
+
+img.blog_image{
+    margin: auto;
+    display: block;
+    max-width: 100%;
+    object-fit: contain;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    border: 1px solid #eee;
+    border-radius: 25px;
+
+}
+
+@media screen and (max-width: 1020px) {
+    .blog_container {
+        width: 90%;
+        position: relative;
+        margin: 0 auto;
+    }
+
+    h1.blog_text{
+        font-size: 25px;
+    }
+
+    h2.blog_text{
+        font-size: 20px;
+    }
+
+    p.blog_text{
+        font-size: 16px;
+    }
+
+    p.date-detail{
+        font-size: 14px;
+    }
+    p.date-index{
+        font-size: 14px;
+    }
+
+    a.blog_title_link{
+        font-size: 25px;
+    }
+
+    ul.blog_text{
+        font-family: 'Karla', serif;
+        font-size: 16px;
+    }
+
+    ol.blog_text{
+        font-family: 'Karla', serif;
+        font-size: 16px;
+    }
+
+    li.blog_text{
+        font-size: 16px;
+        color: #05386B;
+    }
+
+    img.confused-travolta{
+        display: block;
+        margin: 10px auto;
+        z-index: 0;
+        width: 90%;
+        position: absolute;
+
+    }
+
+    hr{
+        margin: 10% auto 5% auto;
+    }
+
+
+    a.content-links{
+        position: relative;
+        font-family: 'Karla', sans-serif;
+        color: #05386B;
+        font-size: 12px;
+        margin: auto 10px;
+        float: right;
+        text-transform: uppercase;
+        text-decoration: none;
+        opacity: 1;
+        transition: border 0.5s linear, color 0.5s linear, background-color 0.5s linear;
+    }
+
+    a.content-links:hover{
+        opacity: 0.75;
+    }
+
+    .code_snippet{
+        padding: 10px;
+        margin: 5px auto;
+        border-radius: 10px;
+        border: 2px solid #1d1e22;
+        background-color: #1d1e22;
+    }
+
+    .code_snippet_404{
+        padding: 10px;
+        margin: 250px auto 20px auto;
+        border-radius: 10px;
+        border: 2px solid #1d1e22;
+        background-color: #1d1e22;
+        z-index: 2;
+        position: absolute;
+    }
+
+    .content-header {
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        height: 80px;
+        width: 100%;
+        background-color: #FF815B;
+        justify-content: center;
+        margin-bottom: 10px;
+
+    }
+
+    .img.confused-travolta{
+        display: block;
+        margin: 10px auto -15px auto;
+    }
+
+
+
+}
+
+
+
+
+
+

@@ -21,7 +21,7 @@ def Homepage(request):
         '-past_job',
         '-current_job',
     )
-    recent_post = BlogPost.objects.latest('created_date')
+    recent_post = BlogPost.objects.all().order_by('-created_date')[:2]
     context = {
         "info": info,
         "experience": experience,

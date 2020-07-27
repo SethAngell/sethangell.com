@@ -1,46 +1,32 @@
-/* ======================= Color Scheme ======================= */
-/* pulled from: https://visme.co/blog/website-color-schemes/ #4 */
-/* Dark purply-blue:    #05386B                                 */
-/* Emerald Green:       #379683                                 */
-/* Electric Mint:       #5CDB95                                 */
-/* Desaturated Mint:    #8EE4AF                                 */
-/* MeltedMintChocoChip: #EDF5E1                                 */
-/* ============================================================ */
+/*
+#032535
+#ffb515
+#ff9a00
+#ff5700
+#da4302
+ */
 
-{% load static %}
+/*
+ #F4722B
+ */
 
-
-h1{
-    font-family: 'Source Sans Pro', sans-serif;
-    color: #05386B;
-    font-size: 35px;
-}
-
-h2{
-    font-family: 'Source Sans Pro', sans-serif;
-    color: #05386B;
-    font-size: 20px;
-}
-
-h3{
-    font-size: 14px;
-    letter-spacing: 1px;
-    color: #05386B;
-    text-transform: uppercase;
-    font-family: 'Source Sans Pro', sans-serif;
-}
-
-p{
-    font-family: 'Source Serif Pro', serif;
-    color: #05386B;
-    font-size: 15px;
-    margin: 0;
-    word-wrap: break-word;
-}
-
+/* ========== BEGIN HOMEPAGE CSS ========== */
 body {
-    margin: 0;
-    padding: 0;
+    background-color: #edf2f2;
+}
+
+.ntmy-container{
+    float:left;
+    position: fixed;
+    left:0;
+    top:0;
+    width:50%;
+    height:100%;
+
+    background-color: #edf2f2 ;
+    /* background-image: linear-gradient(90deg, #f6f9fc 50%, #ffffff 100%); */
+    
+
 }
 
 .nice-to-meet-you{
@@ -50,38 +36,56 @@ body {
     left: 0;
     top:0;
     width:50%;
-    height:100%;
+    height:50%;
+    border-radius: 0 0 40px 0;
+    border: solid 1px #F7E4B2;
+    
 
-    display: inline-block;
-    background-color: #5CDB95;
-    background-image: url('../assets/ILMOverlay.png');
+
+    display: flex;
+    flex-direction: row;
+    background-color: #FBAB7E;
+    background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+
+
+    /*background-image: url('../assets/ILMOverlay.png');*/
     background-size: auto 125%;
-
 
 }
 
+h1.pitch {
+    font-size: 25px;
+}
+
+.ntmy-pitch-and-cta{
+    margin: auto;
+}
 .ntmy-main{
     /* Screen size specific */
     margin: 0;
     position: relative;
     top: 50%;
     transform: translateY(-60%); /*Figure out what this does? */
+    display: flex;
+    flex-direction: row;
 
 }
 
 .ntmy-headshot{
     display: block;
-    margin: auto;
+    float: left;
+    margin: auto 50px;
     width: 250px;
     height: 250px;
     border-radius: 200px;
-    box-shadow: 0 5px 10px #379683;
+    /* box-shadow: 0 5px 10px #FF815B; */
 
 }
 
 .ntmy-headshot-image{
     border-radius: 200px;
-    width: 100%;
+    width: 250px;
+    height: 250px;
 }
 
 .ntmy-pitch{
@@ -89,12 +93,10 @@ body {
     padding: 0 40px;
     display: block;
     margin: 10px auto auto auto;
-    text-align: center;
+    text-align: left;
 }
 
-a{
-    transition: border 0.1s linear, color 0.1s linear, background-color 0.1s linear;
-}
+
 
 .ntmy-collab-and-coffee{
     /* container styling */
@@ -107,12 +109,12 @@ a{
     padding: 11px 24px;
 
     /* Screen Positioning */
-    margin: 40px auto auto auto;
+    margin: 40px auto auto 40px;
     display: block;
     position: relative;
 
     /* Text Styling */
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Rubik', sans-serif;
     color: #05386B;
     font-size: 20px;
     text-decoration: none;
@@ -140,12 +142,12 @@ a{
     padding: 11px 24px;
 
     /* Screen Positioning */
-    margin: 40px auto auto auto;
+    margin: 40px auto auto 40px;
     display: block;
     position: relative;
 
     /* Text Styling */
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Rubik', sans-serif;
     color: #ffffff;
     font-size: 20px;
     text-decoration: none;
@@ -157,6 +159,27 @@ a{
     right: 20px;
     bottom: 10px;
 }
+
+.ntmy-site-link-container{
+        position: absolute;
+        left: 20px;
+        bottom: 10px;
+}
+
+a.ntmy-site-link{
+    font-family: 'Rubik', sans-serif;
+    color: #05386B;
+    height: 25px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    opacity: 1;
+}
+
+a.ntmy-site-link:hover{
+    opacity: .75;
+}
+
 a.ntmy-social-link{
     font-size: 24px;
     text-decoration:none;
@@ -170,6 +193,67 @@ a.ntmy-social-link:hover{
     opacity: .75;
 }
 
+.ntmy-top-blogs{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    height: 50%;
+    width: 100%;
+    
+    /* background-image: linear-gradient(62deg, #a668f7 0%, #7ec5fb 100%);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3); */
+
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
+}
+
+.ntmy-blog-container{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    height: 95%;
+    width: 45%;
+    border-radius: 5px;
+    transition: 0.2s;
+    background-color: #edf2f2;
+}
+
+.ntmy-blog-container:hover{
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: 0.25s;
+    background-color: #ffffff
+}
+
+
+img.ntmy-top-blog-image{
+    height: 40%;
+    width: 90%;
+    border-radius: 5px;
+    object-fit: cover;
+    margin: 15px auto 0 auto;
+    transition: ease-in-out .25s;
+}
+
+img.ntmy-top-blog-image:hover{
+    height: 40%;
+    width: 90%;
+    border-radius: 5px;
+    object-fit: cover;
+    margin: 15px auto 0 auto;
+    transform: translate3d(25px, 0px, 0);
+}
+
+.ntmy-top-blog-info{
+    height: 100%;
+    width: 90%;
+    margin: 10px auto;
+}
+
+
+
 .let-me-introduce-myself{
     /* Screen size specific */
     float: right;
@@ -181,7 +265,7 @@ a.ntmy-social-link:hover{
     display: inline-block;
     padding: 20px;
 
-    color: #ffffff;
+    background-color: #edf2f2;
 
     /* Scrolling software */
     overflow-y: scroll;
@@ -251,7 +335,7 @@ a.ntmy-social-link:hover{
 }
 
 .lmim-list-item{
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Rubik', sans-serif;
     color: #05386B;
 
     /* Text Centering */
@@ -321,31 +405,18 @@ h2.lmim-job-title{
     color: #05386B;
 }
 
-@media screen and (max-width: 1020px) {
-
-    h1{
-        font-family: 'Source Sans Pro', sans-serif;
+    span.content-title{
+        position: relative;
+        font-family: 'Rubik', sans-serif;
         color: #05386B;
-        font-size: 22px;
+        font-size: 35px;
+        margin: auto 10px;
+        float: left;
     }
 
-    h2{
-        font-size: 16px;
-        letter-spacing: 1px;
-        color: #05386B;
-        text-transform: uppercase;
-        font-family: 'Source Sans Pro', sans-serif;
-    }
 
-    h3{
-        font-size: 12px;
-        letter-spacing: 1px;
-        color: #05386B;
-        text-transform: uppercase;
-        font-family: 'Source Sans Pro', sans-serif;
-    }
-
-    h1.lmim-header {
+@media screen and (max-width: 1020px){
+        h1.lmim-header {
         clear: both;
         float: none;
         width: 100%;
@@ -389,7 +460,7 @@ h2.lmim-job-title{
         height:100%;
 
         display: inline-block;
-        background-color: #5CDB95;
+        background-color: #FF815B;
         background-image: url('../assets/ILMOverlay.png');
         background-size: auto 125%;
     }
@@ -400,7 +471,7 @@ h2.lmim-job-title{
         width: 170px;
         height: 170px;
         border-radius: 200px;
-        box-shadow: 0 5px 10px #379683;
+        box-shadow: 0 5px 10px #FF815B;
     }
 
     .ntmy-headshot-image{
@@ -423,6 +494,12 @@ h2.lmim-job-title{
     .ntmy-social-container{
         position: absolute;
         right: 20px;
+        bottom: 10px;
+    }
+
+    .ntmy-site-link-container{
+        position: absolute;
+        left: 20px;
         bottom: 10px;
     }
 
@@ -487,7 +564,7 @@ h2.lmim-job-title{
         position: relative;
 
         /* Text Styling */
-        font-family: 'Source Sans Pro', sans-serif;
+        font-family: 'Rubik', sans-serif;
         color: #05386B;
         font-size: 15px;
         text-decoration: none;
@@ -520,7 +597,7 @@ h2.lmim-job-title{
         position: relative;
 
         /* Text Styling */
-        font-family: 'Source Sans Pro', sans-serif;
+        font-family: 'Rubik', sans-serif;
         color: #ffffff;
         font-size: 15px;
         text-decoration: none;
@@ -551,32 +628,23 @@ h2.lmim-job-title{
     }
 
     .lmim-list-item{
-    font-family: 'Source Sans Pro', sans-serif;
-    color: #05386B;
-
-    /* Text Centering */
-    height: 25px;
-    vertical-align: middle;
-
-    font-size: 18px;
-    clear: both;
-    float: left;
-    /*margin: 5px 30px 0 0;*/
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-
-
-}
-
-@media screen and (max-width: 767px) {
-
-    h1{
-        font-family: 'Source Sans Pro', sans-serif;
+        font-family: 'Rubik', sans-serif;
         color: #05386B;
-        font-size: 22px;
-    }
 
+        /* Text Centering */
+        height: 25px;
+        vertical-align: middle;
+
+        font-size: 18px;
+        clear: both;
+        float: left;
+        /*margin: 5px 30px 0 0;*/
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+}
+
+@media screen and (max-width: 767px){
     h2.lmim-job-company{
         float: left;
         margin: 5px 30px 0 0;
@@ -618,7 +686,7 @@ h2.lmim-job-title{
         position: relative;
         width: 100%;
         min-height: 490px;
-        background-color: #5CDB95;
+        background-color: #FF815B;
         background-image: url('../assets/ILMOverlay.png');
         background-size: auto 125%;
     }
@@ -629,7 +697,7 @@ h2.lmim-job-title{
         width: 170px;
         height: 170px;
         border-radius: 200px;
-        box-shadow: 0 5px 10px #379683;
+        box-shadow: 0 5px 10px #FF815B;
     }
 
     .ntmy-headshot-image{
@@ -731,7 +799,7 @@ h2.lmim-job-title{
         position: relative;
 
         /* Text Styling */
-        font-family: 'Source Sans Pro', sans-serif;
+        font-family: 'Rubik', sans-serif;
         color: #05386B;
         font-size: 15px;
         text-decoration: none;
@@ -764,7 +832,7 @@ h2.lmim-job-title{
         position: relative;
 
         /* Text Styling */
-        font-family: 'Source Sans Pro', sans-serif;
+        font-family: 'Rubik', sans-serif;
         color: #ffffff;
         font-size: 15px;
         text-decoration: none;
@@ -800,5 +868,40 @@ h2.lmim-job-title{
         float: left;
         max-width: 767px;
         line-height: 26px;
+    }
+
+    .ntmy-top-blog{
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        display: flex;
+        flex-direction: row;
+        height: 20%;
+        width: 95%;
+        border-radius: 30px;
+        background-color: #ffffff ;
+        /* background-image: linear-gradient(62deg, #a668f7 0%, #7ec5fb 100%);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3); */
+    }
+    
+    img.ntmy-top-blog-image{
+        display: none;
+        visibility: hidden;
+    }
+    
+    .ntmy-top-blog-info{
+        height: 60%;
+        width: 90%;
+        margin: 0 10px 0 0;
+    
+    
+    
+    }
+
+}
+
+@media (prefers-color-scheme: dark){
+    .nice-to-meet-you{
+        background-color: #303242;
     }
 }
