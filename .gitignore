@@ -309,3 +309,5 @@ pip-selfcheck.json
 # LetsEncrypt & SSL certs
 letsencrpyt/
 # End of https://www.gitignore.io/api/venv,macos,python,django,pycharm,virtualenv
+
+app/FallbackDB
