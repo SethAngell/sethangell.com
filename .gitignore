@@ -293,6 +293,7 @@ fabric.properties
 [Ll]ocal
 [Ss]cripts
 pyvenv.cfg
+prod.env
 .env
 .venv
 env/
