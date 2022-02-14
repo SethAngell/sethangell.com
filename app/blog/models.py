@@ -5,9 +5,10 @@ from django.core.files import File
 from django.db import models
 from django.template.defaultfilters import slugify
 from django.urls import reverse
-from homepage.settings import MEDIA_ROOT
 from PIL import Image
 
+# TODO: blog.BlogPost: (models.W042) Auto-created primary key used when not defining a primary key type, by default 'django.db.models.AutoField'.
+# HINT: Configure the DEFAULT_AUTO_FIELD setting or the BlogConfig.default_auto_field attribute to point to a subclass of AutoField, e.g. 'django.db.models.BigAutoField'.
 
 # Create your models here.
 class TopicTags(models.Model):

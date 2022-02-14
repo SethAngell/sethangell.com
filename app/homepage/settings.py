@@ -119,23 +119,37 @@ USE_TZ = True
 
 # https://testdriven.io/blog/storing-django-static-and-media-files-on-amazon-s3/
 if os.environ.get("USE_S3", False):
+    # Minio Specific
     AWS_ACCESS_KEY_ID = os.environ.get("S3_KEY")
-    AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY")
-    AWS_STORAGE_BUCKET_NAME = os.environ.get("AWS_STORAGE_BUCKET_NAME")
-    AWS_DEFAULT_ACL = "public-read"
-    AWS_S3_CUSTOM_DOMAIN = f"{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com"
-    AWS_S3_OBJECT_PARAMETERS = {"CacheControl": "max-age=86400"}
-    # s3 static settings
-    AWS_LOCATION = "static"
-    STATIC_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/{AWS_LOCATION}/"
-    STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
-STATIC_URL = "/static/"
+    AWS_SECRET_ACCESS_KEY = os.environ.get("S3_SECRET_KEY")
+    AWS_STORAGE_BUCKET_NAME = "homepage"
+    AWS_S3_ENDPOINT_URL = "https://storage.sethangell.com/"
+
+    # Static Config
+    STATIC_LOCATION = "static"
+    STATICFILES_STORAGE = "homepage.storage_backends.StaticStorage"
+    STATIC_URL = f"{AWS_S3_ENDPOINT_URL}{STATIC_LOCATION}/"
+
+    # Media Config
+    PUBLIC_MEDIA_LOCATION = "media"
+    MEDIA_URL = f"{AWS_S3_ENDPOINT_URL}{PUBLIC_MEDIA_LOCATION}/"
+    DEFAULT_FILE_STORAGE = "homepage.storage_backends.PublicMediaStorage"
+
+    # Remove query string from the url
+    AWS_QUERYSTRING_AUTH = False
+
+
+else:
+    STATIC_URL = "/static/"
+    STATIC_ROOT = os.path.join("static")
+    MEDIA_URL = "/media/"
+    MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "home/static"),
 ]
-STATIC_ROOT = os.path.join("static")
-MEDIA_URL = "/media/"
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
 
 if DEBUG is False:
     SECURE_CONTENT_TYPE_NOSNIFF = True
