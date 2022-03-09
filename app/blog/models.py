@@ -14,18 +14,26 @@ from PIL import Image
 class TopicTags(models.Model):
     tag_name = models.CharField(max_length=50)
 
+    def __str__(self):
+        return self.tag_name
+
 
 class BlogPost(models.Model):
-    title = models.CharField(max_length=256, blank=False)
+    title = models.CharField(max_length=256, blank=True)
     markdown_body = models.TextField()
     html_body = models.TextField(blank=True)
     tags = models.ManyToManyField(TopicTags)
-    preview = models.CharField(max_length=100, blank=True)
+    preview = models.CharField(max_length=150, blank=True)
     slug = models.SlugField(null=False, unique=True, blank=True, max_length=256)
     created_date = models.DateField(auto_now_add=True, blank=True)
     updated = models.DateField(auto_now=True, blank=True)
     visibility = models.CharField(
         max_length=2, choices=[("PU", "Public"), ("PR", "Private")]
+    )
+    header_image = (
+        models.ForeignKey(
+            "blog.models.PostImage", on_delete=models.DO_NOTHING, blank=True, null=True
+        ),
     )
 
     def __str__(self):
@@ -38,14 +46,29 @@ class BlogPost(models.Model):
         words = self.markdown_body.split(" ")
         preview = ""
 
-        while len(preview) < 150:
+        while len(preview) < 100:
             preview += words.pop(0)
+            preview += " "
+
+        print(preview)
 
         return markdown.markdown(preview)
 
+    def extract_title(self):
+        split_text = self.markdown_body.split("\n")
+        title = split_text[0]
+        title = title[2:]
+
+        titleless_body = "\n".join(split_text[1:])
+
+        return (title, titleless_body)
+
     def save(self, *args, **kwargs):  # new
-        self.preview = self.pretty_preview()
-        self.html_body = markdown.markdown(self.markdown_body)
+        title, body = self.extract_title()
+        self.title = title
+        if len(self.preview) == 0:
+            self.preview = self.pretty_preview()
+        self.html_body = markdown.markdown(body)
 
         if not self.slug:
             self.slug = slugify(self.title)

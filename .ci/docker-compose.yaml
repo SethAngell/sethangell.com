@@ -5,7 +5,14 @@ services:
     build: 
       context: ../app
       dockerfile: Dockerfile.prod
-    command: gunicorn homepage.wsgi:application --bind 0.0.0.0:8000
+      args:
+        DB_NAME: ${DB_NAME}
+        DB_USER: ${DB_USER}
+        DB_PASS: ${DB_PASS}
+        DB_HOST: ${DB_HOST}
+        DB_PORT: ${DB_PORT}
+        S3_KEY: ${S3_KEY}
+        S3_SECRET_KEY: ${S3_SECRET_KEY}
     container_name: sethangell.com
     volumes: 
       - ./app/:/usr/src/app/

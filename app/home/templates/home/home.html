@@ -1,5 +1,13 @@
 {% extends "_base.html" %}
 {% load static %}
+{% block meta %}
+    <meta property="og:title" content="Seth Angell" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.sethangell.com" />
+    <meta property="og:image" content="{{ info.avatar.url }}" />  
+    <meta property="og:description" content="Hey, I'm Seth. I build mixed reality experiences in beautiful Wilmington, North Carolina" />
+    <meta property="og:site_name" content="https://www.sethangell.com" /> 
+{% endblock meta %}
 {% block section_css %}{% static 'home/css/home.css' %}{% endblock section_css %}
 {% block title %}Seth Angell{% endblock title %}
 {% block content %}

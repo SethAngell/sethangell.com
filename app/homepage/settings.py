@@ -17,7 +17,7 @@ import sys
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-DEBUG = os.environ.get("DJANGO_DEBUG", True)
+DEBUG = bool(int(os.environ.get("DJANGO_DEBUG", 1)))
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "a-super-insecure-key-for-dev-work")
 ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "*").split(" ")
 
@@ -30,7 +30,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    # Third Party Libraries
     "storages",  # Static File Storage with django-storage
+    # User Generated Apps
     "home",  # resume/portfolio location
     "blog",  # Blog locations
 ]
@@ -118,7 +120,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 # https://testdriven.io/blog/storing-django-static-and-media-files-on-amazon-s3/
-if os.environ.get("USE_S3", False):
+if bool(int(os.environ.get("USE_S3", 0))):
     # Minio Specific
     AWS_ACCESS_KEY_ID = os.environ.get("S3_KEY")
     AWS_SECRET_ACCESS_KEY = os.environ.get("S3_SECRET_KEY")

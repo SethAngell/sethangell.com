@@ -1,5 +1,13 @@
 {% extends '_base.html' %}
 {% load static %}
+{% block meta %}
+    <meta property="og:title" content="{{ blog_post.title }}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://www.sethangell.com/blog/{{ blog_post.slug }}" />
+    <meta property="og:image" content="{{ blog_post.header_image }}" />  
+    <meta property="og:description" content="{{ blog_post.preview }}" />
+    <meta property="og:site_name" content="https://www.sethangell.com/blog/" /> 
+{% endblock meta %}
 {% block section_css %}{% static 'blog/css/blog.css' %}{% endblock section_css %}
 {% block title %}{{ blog_post.title }}{% endblock title %}
 {% block content %}

@@ -21,7 +21,7 @@ def blog_detail(request, slug):
 
 
 def blog_index(request):
-    blogs = BlogPost.objects.order_by("-created_date")
+    blogs = BlogPost.objects.filter(visibility="PU").order_by("-created_date")
 
     context = {"blog_posts": blogs}
 
