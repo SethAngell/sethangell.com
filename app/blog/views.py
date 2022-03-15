@@ -6,26 +6,26 @@ from .models import BlogPost, PostImage
 # Create your views here.
 def blog_detail(request, slug):
     blog_post = BlogPost.objects.get(slug=slug)
-    blog_images = PostImage.objects.filter(post=blog_post)
 
-    print(blog_images)
-
-    context = load_context_with_all_image_tags_and(blog_post, blog_images)
-    print(context)
-
-    # context = {
-    #     "blog_post": blog_post,
-    #     "image": blog_images
-    # }
-    return render(request, "blog/blog_detail.html", context)
+    return render(request, "blog/blog_detail.html", {"post": blog_post})
 
 
 def blog_index(request):
     blogs = BlogPost.objects.filter(visibility="PU").order_by("-created_date")
 
-    context = {"blog_posts": blogs}
+    context = {"posts": blogs}
 
     return render(request, "blog/blog_index.html", context)
+
+
+def FilterBlogsByTags(request, tag):
+    print(tag)
+    blogs = BlogPost.objects.filter(tags__tag_name=tag)
+    print(blogs)
+
+    context = {"tag_name": tag, "posts": blogs}
+
+    return render(request, "blog/blog_tags.html", context)
 
 
 def load_context_with_all_image_tags_and(post, images):

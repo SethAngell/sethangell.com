@@ -1,0 +1,45 @@
+{% extends '_base.html' %}
+{% load static %}
+{% block section_css %}{% static 'blog/css/blog.css' %}{% endblock section_css %}
+{% block title %}DoubleL Press{% endblock title %}
+{% block content %}
+    <div class="nav-bar">
+        <div class="content-header">
+            <div class="navbar-text">
+                <a class="nav-bar-item" href="{% url 'blog_index' %}">blog</a>
+                <a class="nav-bar-item" href="{% url 'home' %}">home</a>
+            </div>
+            <div class="navbar-icon">
+                <a class="nav-bar-item" href="{% url 'blog_index' %}">
+                    <i class="fa fa-rss"></i>
+                </a>
+                <a class="nav-bar-item" href="{% url 'home' %}">
+                    <i class="fa fa-home"></i>
+                </a>
+            </div>
+            <span class="content-title">DoubleL Press</span>
+        </div>
+    </div>
+
+    <div class="blog_container">
+    {% if blog_posts.count != 0 %}
+        {% for blog in blog_posts %}
+        <a class="blog_title_link" href="{%  url 'article_detail' blog.slug %}">{{ blog.title }}</a>
+        {% if blog.created_date == blog.updated %}
+            <p class="date-index">Posted: {{ blog.created_date }}</p>
+        {% else %}
+            <p class="date-index">Posted: {{ blog.created_date }} | Updated: {{ blog.updated }}</p>
+        {% endif %}
+        {{ blog.html_body | safe }}
+        <hr>
+    {% endfor %}
+    {% else %}
+        <img class="confused-travolta" src="{% static 'blog/Assets/7VE.gif' %}" alt="A very confused travolta">
+        <div class="code_snippet_404">
+            <p class="code">$ python3 check_for_blog_posts.py</p>
+            <p class="code">$ hmmm, nothing here. Check back later!</p>
+        </div>
+    {% endif %}
+
+    </div>
+{% endblock content %}
