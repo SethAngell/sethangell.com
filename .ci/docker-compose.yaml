@@ -17,5 +17,4 @@ services:
     ports:
       - 8009:8000
     env_file: ../prod.env
-    restart_policy:
-        condition: always
+    restart: always 
