@@ -14,8 +14,6 @@ services:
         S3_KEY: ${S3_KEY}
         S3_SECRET_KEY: ${S3_SECRET_KEY}
     container_name: sethangell.com
-    volumes: 
-      - ./app/:/usr/src/app/
     ports:
       - 8009:8000
     env_file: ../prod.env
