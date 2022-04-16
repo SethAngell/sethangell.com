@@ -6,7 +6,7 @@ WORKDIR /usr/src/app
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 ENV DJANGO_DEBUG 0
-ENV ALLOWED_HOST staging.sethangell.com
+ENV ALLOWED_HOST sethangell.com
 ENV USE_S3 1
 ENV DB_ENGINE django.db.backends.postgresql_psycopg2
 ENV DB_NAME: ${DB_NAME}
@@ -29,4 +29,6 @@ RUN pip install -r requirements.txt
 # Install App
 COPY . .
 
-ENTRYPOINT gunicorn homepage.wsgi:application --bind 0.0.0.0:8000
+COPY ../.ci/deploy.sh .
+
+ENTRYPOINT sh ./deploy.sh
