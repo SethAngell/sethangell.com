@@ -6,6 +6,15 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>{{ post.title }}</title>
 
+    {% block meta %}
+    <meta property="og:title" content="{{post.title}}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sethangell.com/blog/{{post.slug}}/" />
+    <meta property="og:image" content="{{post.header_image.image.url}}" />  
+    <meta property="og:description" content="{{post.preview}}" />
+    <meta property="og:site_name" content="https://www.sethangell.com" /> 
+    {% enblock %}
+
     <style>
         h1, p, a, .content-body{
             font-family: 'Red Hat Mono', monospace;
