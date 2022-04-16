@@ -3,6 +3,14 @@ FROM python:3.9.5-slim-buster
 # Set working directory for all following in container commands
 WORKDIR /usr/src/app
 
+ARG DB_NAME
+ARG DB_USER
+ARG DB_PASS
+ARG DB_HOST
+ARG DB_PORT
+ARG S3_KEY
+ARG S3_SECRET_KEY
+
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 ENV DJANGO_DEBUG 0
