@@ -293,6 +293,7 @@ fabric.properties
 [Ll]ocal
 [Ss]cripts
 pyvenv.cfg
+prod.env
 .env
 .venv
 env/
@@ -308,3 +309,10 @@ pip-selfcheck.json
 # LetsEncrypt & SSL certs
 letsencrpyt/
 # End of https://www.gitignore.io/api/venv,macos,python,django,pycharm,virtualenv
+
+app/FallbackDB
+app/static
+app/homepage_prod
+app/postgres
+
+

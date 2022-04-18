@@ -1,0 +1,20 @@
+version: '3.9'
+
+services:
+  app:
+    build: 
+      context: ../app
+      dockerfile: Dockerfile.prod
+      args:
+        DB_NAME: ${DB_NAME}
+        DB_USER: ${DB_USER}
+        DB_PASS: ${DB_PASS}
+        DB_HOST: ${DB_HOST}
+        DB_PORT: ${DB_PORT}
+        S3_KEY: ${S3_KEY}
+        S3_SECRET_KEY: ${S3_SECRET_KEY}
+    container_name: sethangell.com
+    ports:
+      - 8009:8000
+    env_file: ../prod.env
+    restart: always 

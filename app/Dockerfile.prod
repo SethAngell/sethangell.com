@@ -1,0 +1,42 @@
+FROM python:3.9.5-slim-buster
+
+# Set working directory for all following in container commands
+WORKDIR /usr/src/app
+
+ARG DB_NAME
+ARG DB_USER
+ARG DB_PASS
+ARG DB_HOST
+ARG DB_PORT
+ARG S3_KEY
+ARG S3_SECRET_KEY
+
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+ENV DJANGO_DEBUG 0
+ENV ALLOWED_HOSTS sethangell.com
+ENV USE_S3 1
+ENV DB_ENGINE django.db.backends.postgresql_psycopg2
+ENV DB_NAME: ${DB_NAME}
+ENV DB_USER: ${DB_USER}
+ENV DB_PASS: ${DB_PASS}
+ENV DB_HOST: ${DB_HOST}
+ENV DB_PORT: ${DB_PORT}
+ENV S3_KEY: ${S3_KEY}
+ENV S3_SECRET_KEY: ${S3_SECRET_KEY}
+
+RUN apt-get update \
+  && apt-get -y install gcc postgresql libpq-dev vim gunicorn3 \
+  && apt-get clean
+
+# Handle all necessary dependencies
+RUN pip install --upgrade pip
+COPY ./requirements.txt .
+RUN pip install -r requirements.txt
+
+# Install App
+COPY . .
+
+RUN chmod +x deploy.sh
+
+ENTRYPOINT sh deploy.sh

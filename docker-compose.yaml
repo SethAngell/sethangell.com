@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  app:
+    build: 
+      context: ./app
+    container_name: sethangell.com
+    volumes: 
+      - ./app/:/usr/src/app/
+    ports:
+      - 8009:8000
+    depends_on:
+      - db
+  db:
+    image: postgres
+    hostname: db
+    environment:
+      POSTGRES_PASSWORD: "bad_password"
+    volumes:
+      - pg_data:/var/lib/postgresql
+volumes:
+  pg_data:

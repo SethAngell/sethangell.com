@@ -1,0 +1,100 @@
+{% extends "_base.html" %}
+{% load static %}
+{% block meta %}
+    <meta property="og:title" content="Seth Angell" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.sethangell.com" />
+    <meta property="og:image" content="{{ info.avatar.url }}" />  
+    <meta property="og:description" content="Hey, I'm Seth. I build mixed reality experiences in beautiful Wilmington, North Carolina" />
+    <meta property="og:site_name" content="https://www.sethangell.com" /> 
+{% endblock meta %}
+{% block section_css %}{% static 'home/css/home.css' %}{% endblock section_css %}
+{% block title %}Home{% endblock title %}
+{% block content %}
+    <div class="nice-to-meet-you">
+        <div class="ntmy-main">
+            <div class="ntmy-headshot">
+                <img class="ntmy-headshot-image" src="{{ info.avatar.url }}" alt="the image of an incredibly creative dev you should work with">
+            </div>
+            <div class="ntmy-pitch">
+                 <h1>Hey, I'm Seth. I build mixed reality experiences in beautiful Wilmington, North Carolina</h1>
+            </div>
+            <a class="ntmy-collab-and-coffee" href="mailto:work@sethangell.com">
+                Collab Or Coffee?
+            </a>
+        </div>
+        <div class="ntmy-social-container">
+                <a class="ntmy-social-link" href="https://instagram.com/SethAngell" target="_blank"><i class="fa fa-instagram"></i></a>
+                <a class="ntmy-social-link" href="https://twitter.com/SethAngell" target="_blank"><i class="fa fa-twitter"></i></a>
+                <a class="ntmy-social-link" href="https://Github.com/SethAngell" target="_blank"><i class="fa fa-github"></i></a>
+                <a class="ntmy-social-link" href="https://open.spotify.com/user/sethyboyy?si=K2cfPG1gROGBWUknNXC4RQ" target="_blank"><i class="fa fa-spotify"></i></i></a>
+        </div>
+        <div class="ntmy-site-link-container">
+            <a class="ntmy-site-link" href={% url 'blog_index' %}>blog</a>
+            |
+            <a class="ntmy-site-link" href={{ info.resume.url }}>resume</a>
+        </div>
+    </div>
+    <div class="let-me-introduce-myself">
+        <div class="lmim-bio">
+            <h1 class="lmim-header">Let's talk:</h1>
+            <div class="lmim-copy">
+                <p>{{ info.bio }}</p>
+            </div>
+        </div>
+        <div class="lmim-these-are-a-few">
+            <h1 class="lmim-header">My favorite things:</h1>
+            <div class="lmim-few-of-list">
+                <div class="lmim-few-of-left">
+                    <div class="lmim-list-item"><img class="icons" src="{% static 'home/assets/python.svg' %}" alt="Python logo"> Python</div>
+                    <div class="lmim-list-item"><img class="icons" src="{% static 'home/assets/csharp.svg' %}" alt="C# logo"> C#</div>
+                    <div class="lmim-list-item"><img class="icons" src="{% static 'home/assets/django.svg' %}" alt="Django logo"> Django</div>
+                    <div class="lmim-list-item"><img class="icons" src="{% static 'home/assets/unity.svg' %}" alt="Unity logo"> Unity</div>
+                </div>
+                <div class="lmim-few-of-right">
+                    <div class="lmim-list-item"><img class="icons" src="{% static 'home/assets/postgresql.svg' %}" alt="PostgreSQL logo"> PostgreSQL</div>
+                    <div class="lmim-list-item"><img class="icons" src="{% static 'home/assets/markdown.svg' %}" alt="Markdown logo"> Markdown</div>
+                    <div class="lmim-list-item"><img class="icons" src="{% static 'home/assets/apple.svg' %}" alt="Apple logo"> Apple</div>
+                    <div class="lmim-list-item"><img class="icons" src="{% static 'home/assets/ubuntu.svg' %}" alt="Ubuntu logo"> Ubuntu</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="lmim-experience">
+            <h1 class="lmim-header">Experience:</h1>
+            {% for job in experience %}
+                {% if forloop.counter == 1 %}
+                    <div class="lmim-job-first">
+                        <h2 class="lmim-job-title">{{ job.title }}</h2>
+                        <div class="lmim-job-byline">
+                            <h3 class="lmim-job-company">{{ job.company }}</h3>
+                                {% if job.present == True %}
+                                    <h3 class="lmim-job-timeline">{{ job.start_year }} - Present</h3>
+                                {% else %}
+                                    <h3 class="lmim-job-timeline">{{ job.start_year }} - {{ job.end_year }}</h3>
+                                {% endif %}
+                        </div>
+                        <div class="lmim-job-copy">
+                            <p>{{ job.description }}</p>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="lmim-job">
+                        <h2 class="lmim-job-title">{{ job.title }}</h2>
+                        <div class="lmim-job-byline">
+                            <h3 class="lmim-job-company">{{ job.company }}</h3>
+                                {% if job.present == True %}
+                                    <h3 class="lmim-job-timeline">{{ job.start_year }} - Present</h3>
+                                {% else %}
+                                    <h3 class="lmim-job-timeline">{{ job.start_year }} - {{ job.end_year }}</h3>
+                                {% endif %}
+                        </div>
+                        <div class="lmim-job-copy">
+                            <p>{{ job.description }}</p>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}
