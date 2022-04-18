@@ -1,14 +1,18 @@
 import os
 import re
+import tempfile
+from ast import Bytes
 from io import BytesIO
 
 import markdown
 from bs4 import BeautifulSoup
 from django.core.files import File
+from django.core.files.base import ContentFile
+from django.core.files.storage import default_storage as storage
 from django.db import models
 from django.template.defaultfilters import slugify
 from django.urls import reverse
-from PIL import Image
+from PIL import Image, UnidentifiedImageError
 
 # TODO: blog.BlogPost: (models.W042) Auto-created primary key used when not defining a primary key type, by default 'django.db.models.AutoField'.
 # HINT: Configure the DEFAULT_AUTO_FIELD setting or the BlogConfig.default_auto_field attribute to point to a subclass of AutoField, e.g. 'django.db.models.BigAutoField'.
@@ -27,9 +31,43 @@ class PostImage(models.Model):
     reference = models.CharField(max_length=128)
     alt_text = models.TextField(blank=False)
     image = models.ImageField(upload_to="blog_images")
+    thumbnail = models.ImageField(
+        upload_to="blog_images/thumbnails", editable=False, blank=True, null=True
+    )
 
     def __str__(self):
         return self.reference
+
+    # https://stackoverflow.com/a/23927211
+    def make_thumbnail(self):
+
+        image = Image.open(self.image)
+        image.thumbnail((1200, 630), Image.LANCZOS)
+
+        thumb_name, thumb_extension = os.path.splitext(self.image.name)
+        thumb_extension = thumb_extension.lower()
+
+        thumb_filename = thumb_name + "_thumb" + thumb_extension
+
+        if thumb_extension in [".jpg", ".jpeg"]:
+            FTYPE = "JPEG"
+        elif thumb_extension == ".gif":
+            FTYPE = "GIF"
+        elif thumb_extension == ".png":
+            FTYPE = "PNG"
+        else:
+            return False  # Unrecognized file type
+
+        # Save thumbnail to in-memory file as StringIO
+        temp_thumb = BytesIO()
+        image.save(temp_thumb, FTYPE)
+        temp_thumb.seek(0)
+
+        # set save=False, otherwise it will run in an infinite loop
+        self.thumbnail.save(thumb_filename, ContentFile(temp_thumb.read()), save=False)
+        temp_thumb.close()
+
+        return True
 
     def generate_png_version(self, p_image, p_name):
         """
@@ -49,6 +87,10 @@ class PostImage(models.Model):
     def save(self, *args, **kwargs):
         if self.image:
             self.image = self.generate_png_version(self.image, self.reference)
+
+        if not self.make_thumbnail():
+            raise Exception("Could not create thumbnail - is the file type valid?")
+
         super().save(*args, **kwargs)
 
 
@@ -78,7 +120,7 @@ class BlogPost(models.Model):
         return reverse("article_detail", kwargs={"slug": self.slug})
 
     def extension(self):
-        name, extension = os.path.splitext(self.header_image.image.url)
+        name, extension = os.path.splitext(self.header_image.thumbnail.url)
         return extension
 
     def determine_image_encoding(self):
