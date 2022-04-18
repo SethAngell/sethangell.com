@@ -1,7 +1,9 @@
+import os
 import re
 from io import BytesIO
 
 import markdown
+from bs4 import BeautifulSoup
 from django.core.files import File
 from django.db import models
 from django.template.defaultfilters import slugify
@@ -66,11 +68,24 @@ class BlogPost(models.Model):
         PostImage, on_delete=models.DO_NOTHING, blank=True, null=True
     )
 
+    image_encoding = models.CharField(max_length=25, blank=True)
+    open_graph_protocol_description = models.CharField(max_length=500, blank=True)
+
     def __str__(self):
         return self.title
 
     def get_absolute_url(self):
         return reverse("article_detail", kwargs={"slug": self.slug})
+
+    def extension(self):
+        name, extension = os.path.splitext(self.header_image.image.url)
+        return extension
+
+    def determine_image_encoding(self):
+        if self.extension().lower() in ["jpg", "jpeg"]:
+            return "image/jpeg"
+        else:
+            return "image/png"
 
     def pretty_preview(self):
 
@@ -132,6 +147,10 @@ class BlogPost(models.Model):
         self.title = title
         if len(self.preview) == 0:
             self.preview = self.pretty_preview()
+        self.open_graph_protocol_description = "".join(
+            BeautifulSoup(self.preview).findAll(text=True)
+        )
+        self.image_encoding = self.determine_image_encoding()
         self.html_body = markdown.markdown(
             body,
             extensions=[

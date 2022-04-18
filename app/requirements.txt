@@ -9,4 +9,4 @@ sqlparse==0.3.0
 Markdown==3.3.6
 django-storages==1.11.1
 boto3
-
+beautifulsoup4
