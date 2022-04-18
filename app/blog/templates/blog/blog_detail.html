@@ -4,16 +4,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Mono:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>{{ post.title }}</title>
+    <title>Seth Angell: {{ post.title }}</title>
 
-    {% block meta %}
     <meta property="og:title" content="{{post.title}}" />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://sethangell.com/blog/{{post.slug}}/" />
+    <meta property="og:url" content="https://sethangell.com/blog/{{post.slug}}" />
     <meta property="og:image" content="{{post.header_image.image.url}}" />  
     <meta property="og:description" content="{{post.preview}}" />
     <meta property="og:site_name" content="https://www.sethangell.com" /> 
-    {% endblock %}
 
     <style>
         h1, p, a, .content-body{

@@ -17,6 +17,6 @@ services:
     environment:
       POSTGRES_PASSWORD: "bad_password"
     volumes:
-      - pg_data:/var/lib/postgresql
+      - pg_data:/var/lib/postgresql/data
 volumes:
   pg_data:
