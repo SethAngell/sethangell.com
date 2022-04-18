@@ -1,10 +1,5 @@
 # SethAngell.com
 
+My little corner of the internet :)
 
-My personal sandbox, a rather simple online resume that could easily be a static HTML file.
-The simplicity allows me to try out more complex techniques without having to worry about the types of bugs that come form more complex builds.
-Technologies/Techniques that I'm using this site to explore include:
-* Django
-* PostgreSQL
-* CI/CD using CircleCI
-* Self Hosting on linode using Ubuntu, Nginx, Gunicorn, and LetsEncrypt
+Mostly used as a sandbox to try out new things. Currently rocking with Django served by gunicorn in a docker container. Storing static assets on a seperate server running [minio](minio.io). Migrating to Tailwind as my CSS library of choice.  
