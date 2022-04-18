@@ -74,17 +74,28 @@ class BlogPost(models.Model):
 
     def pretty_preview(self):
 
+        size_bins = [350, 300, 250, 200, 150, 100, 50]
+        bin_index = 0
+
         words = self.extract_title()[1].split(" ")
-        preview = ""
+        preview_extracted = False
 
-        while len(preview) < 350:
-            preview += words.pop(0)
-            preview += " "
+        while preview_extracted is False:
+            preview = ""
 
-        preview = preview[:-1]
-        preview += "..."
+            while (len(preview) < size_bins[bin_index]) and (len(words) > 0):
+                preview += words.pop(0)
+                preview += " "
 
-        return markdown.markdown(preview)
+            preview = preview[:-1]
+            preview += "..."
+
+            markdown_preview = markdown.markdown(preview)
+
+            if len(markdown_preview) <= 400:
+                return markdown_preview
+            else:
+                bin_index += 1
 
     def extract_title(self):
         split_text = self.markdown_body.split("\n")
