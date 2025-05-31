@@ -1,0 +1,69 @@
+:root {
+    --bg-color: light-dark(var(--flexoki-paper), var(--flexoki-black));
+    --bg-inverse:  light-dark(var(--flexoki-black), var(--flexoki-paper));
+    --text-color: light-dark(var(--flexoki-black), var(--flexoki-paper));
+    --main-accent: #EB5A3C;
+
+    color-scheme: light dark;
+    color: var(--text-color);
+    height: 100dvh;
+    width: 100dvw;
+
+    * {
+        font-family: "Rubik", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+    }
+}
+
+body {
+    background-color: var(--bg-color);
+    margin: 0;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+
+
+    header {
+        width: 100%;
+        padding: 1rem;
+        background-color: var(--main-accent);
+
+        nav {
+            background-color: var(--main-accent);
+
+        }
+    }
+
+    nav {
+        display: flex;
+        flex-direction: row;
+        column-gap: 2rem;
+        padding: 0 1rem;
+
+        a {
+            font-weight: bold;
+            text-decoration: none;
+            color: var(--bg-inverse);
+        }
+
+        a:visited {
+            color: var(--bg-inverse);
+        }
+
+        a:hover,
+        a:focus {
+            color: var(--bg-color);
+        }
+    }
+
+    main {
+        flex-grow: 1;
+    }
+
+}
+
