@@ -1,0 +1,15 @@
+---
+layout: _baseTemplate.njk
+title: DoubleL Press
+---
+<article class="index">
+    <h1>DoubleL Press: Product Design</h1>
+
+    {%- for post in collections['product design'] | reverse -%}
+    <div class="snippet"> 
+        <a class="heading fancy-link" href="{{ post.page.url }}">{{ post.data.title }}</a>
+        <p class="post-date">{{ post.page.date | eloquent-date }}</p>
+        <p class="description">{{post.data.description}}</p>    
+    </div>
+    {%- endfor -%}
+</article>

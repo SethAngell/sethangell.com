@@ -1,69 +1,73 @@
 :root {
-    --bg-color: light-dark(var(--flexoki-paper), var(--flexoki-black));
-    --bg-inverse:  light-dark(var(--flexoki-black), var(--flexoki-paper));
-    --text-color: light-dark(var(--flexoki-black), var(--flexoki-paper));
-    --main-accent: #EB5A3C;
+  --bg-color: light-dark(var(--flexoki-paper), var(--flexoki-black));
+  --bg-inverse: light-dark(var(--flexoki-black), var(--flexoki-paper));
+  --text-color: light-dark(var(--flexoki-black), var(--flexoki-paper));
+  --secondary-text-color: light-dark(var(--flexoki-800), var(--flexoki-200));
+  --main-accent: #eb5a3c;
+  --center-column-max-width:40dvw;
 
-    color-scheme: light dark;
-    color: var(--text-color);
-    height: 100dvh;
-    width: 100dvw;
+  color-scheme: light dark;
+  color: var(--text-color);
+  height: 100dvh;
+  width: 100dvw;
 
-    * {
-        font-family: "Rubik", sans-serif;
-        font-optical-sizing: auto;
-        font-weight: 400;
-        font-style: normal;
-    }
+  * {
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .heading {
+    font-family: "Gilda Display", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
 }
 
 body {
-    background-color: var(--bg-color);
-    margin: 0;
-    height: 100%;
+  background-color: var(--bg-color);
+  margin: 0;
+  height: 100%;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
 
-
-    header {
-        width: 100%;
-        padding: 1rem;
-        background-color: var(--main-accent);
-
-        nav {
-            background-color: var(--main-accent);
-
-        }
-    }
+  header {
+    width: calc(100% - 2rem);
+    padding: 1rem;
+    background-color: var(--main-accent);
 
     nav {
-        display: flex;
-        flex-direction: row;
-        column-gap: 2rem;
-        padding: 0 1rem;
+      background-color: var(--main-accent);
+    }
+  }
 
-        a {
-            font-weight: bold;
-            text-decoration: none;
-            color: var(--bg-inverse);
-        }
+  nav {
+    display: flex;
+    flex-direction: row;
+    column-gap: 2rem;
+    padding: 0 1rem;
 
-        a:visited {
-            color: var(--bg-inverse);
-        }
-
-        a:hover,
-        a:focus {
-            color: var(--bg-color);
-        }
+    a {
+      font-weight: bold;
+      text-decoration: none;
+      color: var(--bg-inverse);
     }
 
-    main {
-        flex-grow: 1;
+    a:visited {
+      color: var(--bg-inverse);
     }
 
+    a:hover,
+    a:focus {
+      color: var(--bg-color);
+    }
+  }
+
+  main {
+    flex-grow: 1;
+  }
 }
-

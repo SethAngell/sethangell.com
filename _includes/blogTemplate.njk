@@ -1,16 +1,8 @@
 ---
-title: My Rad Blog
+layout: _baseTemplate.njk
+description: A short description of the blog post used for meta tags and and previews
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }}</title>
-  </head>
-  <body>
-    
-    {{ content | safe }}
-  </body>
-</html>
+<article class="blog-post">
+  {{ content | safe }}
+</article>

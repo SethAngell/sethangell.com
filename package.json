@@ -16,5 +16,8 @@
     "@11ty/eleventy-img": "^6.0.4",
     "clean-css": "^5.3.3",
     "prettier": "^3.5.3"
+  },
+  "devDependencies": {
+    "prettier-plugin-jinja-template": "^2.1.0"
   }
 }
