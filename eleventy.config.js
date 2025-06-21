@@ -4,7 +4,7 @@ import { feedPlugin } from "@11ty/eleventy-plugin-rss";
 
 export default function (eleventyConfig) {
   eleventyConfig.setTemplateFormats([
-    "njk", "md", "11ty.js", 
+    "njk", "md", 
   ]);
 
   eleventyConfig.addPreprocessor("drafts", "*", (data, content) => {
