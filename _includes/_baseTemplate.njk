@@ -36,10 +36,10 @@ meta_image:
   <body>
     <header>
       <nav>
-        <a href="/"> / </a>
-        <a href="/about/">/about</a>
-        <a href="/blog/">/blog</a>
-        <a href="/uses/">/uses</a>
+        <a href="{{ '/' | url }}">/</a>
+        <a href="{{ '/about/' | url }}">/about</a>
+        <a href="{{ '/blog/' | url }}">/blog</a>
+        <a href="{{ '/uses/' | url }}">/uses</a>
       </nav>
     </header>
     <main>{{ content | safe }}</main>
