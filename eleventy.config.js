@@ -3,10 +3,6 @@ import { feedPlugin } from "@11ty/eleventy-plugin-rss";
 
 
 export default function (eleventyConfig) {
-  eleventyConfig.setTemplateFormats([
-    "njk", "md", 
-  ]);
-
   eleventyConfig.addPreprocessor("drafts", "*", (data, content) => {
 		if(data.draft && process.env.ELEVENTY_RUN_MODE === "build") {
 			return false;
