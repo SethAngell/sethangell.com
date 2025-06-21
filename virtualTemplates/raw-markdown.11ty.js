@@ -9,7 +9,17 @@ export default class {
         size: 1,
         alias: "post",
       },
-      permalink: ({ post }) => post.page.filePathStem + ".md",
+      permalink: ({ post }) => {
+        const inputPath = post.page.inputPath;
+        const isMarkdown = inputPath.endsWith(".md");
+        const isInBlog = inputPath.includes(path.join("blog", path.sep));
+
+        if (isMarkdown && isInBlog) {
+          return post.page.filePathStem + ".md";
+        }
+
+        return post.page.filePathStem + "/";
+      },
       layout: null,
       contentType: "text/plain",
       eleventyExcludeFromCollections: true,
