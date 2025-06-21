@@ -1,12 +1,13 @@
 ---
 layout: _baseTemplate.njk
 title: Seth Angell
+omit_footer: true
 ---
 
 <div class="hero">
   <img
     class="profile-picture"
-    src="_assets/seth-angell-profile-picture.JPG"
+    src="{{ '_assets/seth-angell-profile-picture.JPG' | }}"
     alt="That's me, Seth! I'm standing in front of a treeline with my arms crossed behind my back. You can slightly see my tattoo of the GOES-16 weather satellite on my arm. I'm wearing a Hawaiian style shirt littered with small palm leaf illustrations. I'm smiling, despite my hair starting to droop into my face."
   />
   <div class="elevator-pitch">
@@ -22,8 +23,8 @@ title: Seth Angell
         I live in Wilmington, North Carolina with my partner Maddi and our dog
         Mason. When I'm not deliberating between an if tree and a switch case, I
         like to play sand volleyball, dabble in
-        <a href="/design">product design</a>, occasionally
-        <a href="/blog">write</a>.
+        <a href="{{ '/blog/product-design/' | url }}">product design</a>, occasionally
+        <a href="{{ '/blog/' | url}}">write</a>.
       </p>
     </div>
   </div>
