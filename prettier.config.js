@@ -1,13 +1,16 @@
 const config = {
-    plugins: ["prettier-plugin-jinja-template"],
-    overrides: [
-      {
-        files: ["*.njk"],
-        options: {
-          parser: "jinja-template",
-        },
+  tabWidth: 4,
+  useTabs: true,
+
+  plugins: ["prettier-plugin-jinja-template"],
+  overrides: [
+    {
+      files: ["*.njk"],
+      options: {
+        parser: "jinja-template",
       },
-    ],
-  };
-  
-  export default config;
+    },
+  ],
+};
+
+export default config;

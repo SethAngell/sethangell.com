@@ -4,6 +4,10 @@ title: "Iterative (Physical) Design: A Mount For My TRMNL"
 description: I'm really into the TRMNL recently. It's an E-Ink screen with tons of integrations that displays information you might want - at a slower pace. Calendars, ToDo lists, the weather, etc. Naturally it made sense to live on the fridge, which meant I needed a mount...
 date: 2025-06-19
 tags: [post, product design]
+meta_title: "Iterative (Physical) Design: A Mount For My TRMNL"
+meta_url: https://sethangell.com/blog/magnetic-trmnl-mount.md
+meta_site_name: DoubleL Press
+meta_image: /_assets/magnetic-trmnl-mount-cover-image.jpeg
 ---
 
 ![A top down image of my two TRMNLs E-Ink devices on my workbench. One is displaying my Github statistics while the other has been flipped upside down to show the magnetic mount on the back. Scattered around the rectangular E-Ink displays are the various test prints I performed to dial in the design. This is all sitting atop a black, self-healing cutting mat.](/_assets/magnetic-trmnl-mount-cover-image.jpeg "A collection of attempts")
