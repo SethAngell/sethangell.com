@@ -6,7 +6,7 @@ article {
 
 article.blog-post {
 	row-gap: 1.5rem;
-    padding-top: 2rem;
+	padding-top: 2rem;
 
 	img {
 		border-radius: 1rem;
@@ -36,7 +36,7 @@ article.blog-post {
 	}
 
 	a {
-		color: var(--main-accent);
+		color: var(--secondary-accent);
 	}
 }
 
@@ -95,7 +95,7 @@ article.index {
 		height: 2px;
 		bottom: -3px;
 		left: 0;
-		background-color: var(--main-accent);
+		background-color: var(--secondary-accent);
 		transform: scaleX(0);
 		transform-origin: top left;
 		transition: transform 0.3s ease;

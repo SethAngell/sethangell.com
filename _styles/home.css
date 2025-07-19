@@ -1,39 +1,57 @@
 .hero {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  column-gap: 1rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	column-gap: 1rem;
 
-  height: 100%;
+	background-image: url("/_assets/backdrops/wrightsville_overlay_mini.svg");
 
-  img {
-    width: 10rem;
-    height: 10rem;
-    border-radius: 1rem;
-    border: solid 5px var(--main-accent);
-  }
+	background-size: cover;
+	background-color: var(--bg-color);
 
+	height: 100%;
 
+	img {
+		width: 10rem;
+		height: 10rem;
+		border-radius: 1rem;
+		border: solid 5px var(--secondary-accent);
+	}
 
-  .elevator-pitch {
-     max-width: 35%;
+	.elevator-pitch {
+		max-width: 35%;
 
-     .overview {
-        position: relative;
-     }
+		.overview {
+			position: relative;
+		}
 
-     p a {
-        color: var(--text-color);
-        text-decoration: underline;
-        text-decoration-color: var(--main-accent);
-        text-underline-offset: 0.25rem;
-      }
-    
-      p a:hover,
-      p a:focus {
-        color: var(--main-accent);
-      }
+		p a {
+			color: var(--text-color);
+			text-decoration: underline;
+			text-decoration-color: var(--secondary-accent);
+			text-underline-offset: 0.25rem;
+		}
 
-  }
+		p a:hover,
+		p a:focus {
+			color: var(--secondary-accent);
+		}
+	}
+
+	svg {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+		fill: var(--main-accent);
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	.hero {
+		background-image: url("/_assets/backdrops/wrightsville_overlay_mini_dark.svg");
+	}
 }
