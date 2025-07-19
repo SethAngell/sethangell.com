@@ -16,6 +16,10 @@
 		margin-block: 0;
 	}
 
+	a {
+		color: var(--secondary-accent);
+	}
+
 	h1 {
 		font-family: "Gilda Display", serif;
 		font-weight: 400;
