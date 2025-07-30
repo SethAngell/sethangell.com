@@ -3,10 +3,13 @@
 	--bg-inverse: light-dark(var(--flexoki-black), var(--flexoki-paper));
 	--text-color: light-dark(var(--flexoki-black), var(--flexoki-paper));
 	--secondary-text-color: light-dark(var(--flexoki-800), var(--flexoki-200));
-	--main-accent: light-dark(var(--flexoki-orange-50), var(--flexoki-red-950));
+	--main-accent: light-dark(
+		var(--flexoki-orange-50),
+		var(--flexoki-purple-950)
+	);
 	--secondary-accent: light-dark(
 		var(--flexoki-orange-300),
-		var(--flexoki-red-600)
+		var(--flexoki-purple-600)
 	);
 	--center-column-max-width: 40dvw;
 
