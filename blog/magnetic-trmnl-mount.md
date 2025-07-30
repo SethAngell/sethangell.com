@@ -20,10 +20,10 @@ While I love the TRMNL on my desk, I really wanted the second device to act as m
 
 ![An image of my TRMNL mounted in the top right corner of my fridge. It is display a grid of data, where the left side has our calender and the right side is split between pending deliveries and the current weather. You can also see our Wrightsville Beach, equality, and fake plant magnets in the image](/_assets/trmnl-on-the-fridge.jpeg)
 
-The fridge. 15 square feet of magnetic surface, ripe for the taking. 
+The fridge. 15 square feet of magnetic surface, ripe for the taking.
 
-I was really excited to work on this mount. I've dabbled in 3d printing for the last five years or so, but I only got serious about learning Fusion360 in the past couple months. Now given my day job as a software engineer, I'm already well aware of the joys that a tight feedback loop can bring. It's part of the reason frontend development can be so fun (or painful depending on the day). 
+I was really excited to work on this mount. I've dabbled in 3d printing for the last five years or so, but I only got serious about learning Fusion360 in the past couple months. Now given my day job as a software engineer, I'm already well aware of the joys that a tight feedback loop can bring. It's part of the reason frontend development can be so fun (or painful depending on the day).
 
-However, there is something so satisfying about that iterative development which generates a physical object each time! With how fast my [P1S](https://bambulab.com/en-us/p1) prints, my cycle time from Fusion360 export -> test fit on the TRMNL was like 15 minutes. This was great for getting all of the dimensions dialed in. 
+However, there is something so satisfying about that iterative development which generates a physical object each time! With how fast my [P1S](https://bambulab.com/en-us/p1) prints, my cycle time from Fusion360 export -> test fit on the TRMNL was like 15 minutes. This was great for getting all of the dimensions dialed in.
 
 In the end I'm pretty happy with the result. Magnets are embedded within the model which attach to the fridge, and utilizes 3 points of contact to secure the mount to the back of the display. You can check it out [here](https://makerworld.com/en/models/1513288-magnetic-trmnl-mount#profileId-1584851).
