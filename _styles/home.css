@@ -55,3 +55,17 @@
 		background-image: url("/_assets/backdrops/wrightsville_overlay_mini_dark.svg");
 	}
 }
+
+@media (max-width: 719px) {
+	.hero {
+		flex-direction: column;
+
+		.elevator-pitch {
+			max-width: 90%;
+
+			h1 {
+				text-align: center;
+			}
+		}
+	}
+}

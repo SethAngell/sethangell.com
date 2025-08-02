@@ -17,10 +17,6 @@ meta_image:
       href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
       rel="stylesheet"
     />
-    <script
-      src="https://unpkg.com/website-carbon-badges@1.1.3/b.min.js"
-      defer
-    ></script>
     <link rel="canonical" href="https://sethangell.com" />
     <link rel="alternate" type="application/rss+xml" href="/feed.rss" />
     <link rel="me" href="https://github.com/sethangell" />
@@ -39,14 +35,12 @@ meta_image:
         <a href="{{ '/' | url }}">/</a>
         <a href="{{ '/coffee-table/' | url }}">/coffee-table</a>
         <a href="{{ '/blog/' | url }}">/blog</a>
-        <a href="{{ '/uses/' | url }}">/uses</a>
       </nav>
     </header>
     <main>{{ content | safe }}</main>
     {% if omit_footer == false %}
       <hr />
       <footer>
-        <div id="wcb" class="carbonbadge"></div>
         <p>Made With ❤️ In Wilmington, North Carolina</p>
       </footer>
     {% endif %}

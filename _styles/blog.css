@@ -44,7 +44,8 @@ article.index {
 	display: flex;
 	flex-direction: column;
 	row-gap: 1rem;
-	max-width: calc(var(--center-column-max-width) + 10rem);
+	max-width: calc(var(--center-column-max-width) - 2rem);
+	padding-top: 2rem;
 
 	.snippet {
 		display: flex;
@@ -104,5 +105,19 @@ article.index {
 	.fancy-link:hover::before,
 	.fancy-link:focus::before {
 		transform: scaleX(1);
+	}
+}
+
+@media (max-width: 900px) {
+	article.index {
+		.heading {
+			font-size: 1.5rem;
+		}
+		.fancy-link {
+			max-width: 80dvw;
+		}
+		.fancy-link::before {
+			display: none;
+		}
 	}
 }
