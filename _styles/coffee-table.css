@@ -58,3 +58,13 @@
 		}
 	}
 }
+
+@media (max-width: 719px) {
+	.hero {
+		flex-direction: column;
+
+		.elevator-pitch {
+			max-width: 90%;
+		}
+	}
+}
