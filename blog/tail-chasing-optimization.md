@@ -2,7 +2,7 @@
 layout: blogTemplate.njk
 title: "Tail Chasing Optimization"
 description: We've almost figured it out.
-date: 2024-05-01
+date: 2026-03-31
 tags: [post]
 meta_title: "Tail Chasing Optimization"
 meta_url: https://sethangell.com/blog/tail-chasing-optimization.md
