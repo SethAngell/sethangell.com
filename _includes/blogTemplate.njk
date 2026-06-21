@@ -1,8 +1,56 @@
 ---
 layout: _baseTemplate.njk
-description: A short description of the blog post used for meta tags and and previews
+description: A short description of the blog post used for meta tags and previews
+eleventyComputed:
+  meta_image: "https://sethangell.com/blog/og/{{ page.fileSlug }}.png"
 ---
 
 <article class="blog-post">
-  {{ content | safe }}
+  <a class="back-link" href="{{ '/blog/' | url }}">← /blog</a>
+
+  <p class="post-meta">
+    <span class="date">{{ page.date | metaDate }}</span>
+    {% set readingTime = content | readingTime %}
+    {% if readingTime %}
+      <span class="dot" aria-hidden="true"></span>
+      <span class="reading-time">{{ readingTime }}</span>
+    {% endif %}
+  </p>
+
+  <h1>{{ title }}</h1>
+
+  {% if heroImage %}
+    <figure class="hero">
+      <img src="{{ heroImage }}" alt="{{ heroAlt }}" />
+      {% if caption %}<figcaption>{{ caption }}</figcaption>{% endif %}
+    </figure>
+  {% elif hook %}
+    <aside class="hook-lede">
+      <div class="hook-spine" aria-hidden="true"></div>
+      <p class="hook-quote">{{ hook }}</p>
+    </aside>
+  {% endif %}
+
+  <div class="post-body">
+    {{ content | safe }}
+  </div>
+
+  {% set olderPost = collections.blog | getNextCollectionItem %}
+  {% set newerPost = collections.blog | getPreviousCollectionItem %}
+  {% if olderPost or newerPost %}
+    <nav class="post-nav">
+      <div class="post-nav-prev">
+        {% if olderPost %}
+          <span class="post-nav-label">← Previous</span>
+          <a class="post-nav-title" href="{{ olderPost.url }}">{{ olderPost.data.title }}</a>
+        {% endif %}
+      </div>
+      <div class="post-nav-next">
+        {% if newerPost %}
+          <span class="post-nav-label">Next →</span>
+          <a class="post-nav-title" href="{{ newerPost.url }}">{{ newerPost.data.title }}</a>
+        {% endif %}
+      </div>
+    </nav>
+  {% endif %}
 </article>
