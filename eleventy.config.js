@@ -30,6 +30,20 @@ export default function (eleventyConfig) {
 		return `${dt.toFormat("EEEE, LLLL")} ${dt.day}${getOrdinal(dt.day)}, ${dt.year}`;
 	});
 
+	eleventyConfig.addFilter("reading-time", (content) => {
+		if (!content) return "";
+		const text = String(content).replace(/<[^>]*>/g, " ");
+		const words = text.split(/\s+/).filter(Boolean).length;
+		const minutes = Math.max(1, Math.round(words / 200));
+		return `${minutes} min read`;
+	});
+
+	eleventyConfig.addFilter("meta-date", (date) => {
+		return DateTime.fromJSDate(date, { zone: "utc" }).toFormat(
+			"EEEE, LLLL d yyyy",
+		);
+	});
+
 	eleventyConfig.addCollection("blog", function (collectionApi) {
 		return collectionApi
 			.getFilteredByGlob("./blog/**/*.md")
