@@ -44,6 +44,22 @@ export default function (eleventyConfig) {
 		);
 	});
 
+	eleventyConfig.addFilter("byCategory", (collection, key) => {
+		return (collection || [])
+			.filter((it) => it.data.category === key && it.data.active !== false)
+			.sort((a, b) => new Date(b.data.added) - new Date(a.data.added));
+	});
+
+	eleventyConfig.addFilter("latestAdded", (collection) => {
+		const dates = (collection || [])
+			.filter((it) => it.data.active !== false && it.data.added)
+			.map((it) => new Date(it.data.added));
+		if (!dates.length) return "";
+		return DateTime.fromJSDate(new Date(Math.max(...dates)), {
+			zone: "utc",
+		}).toFormat("LLLL yyyy");
+	});
+
 	eleventyConfig.addCollection("blog", function (collectionApi) {
 		return collectionApi
 			.getFilteredByGlob("./blog/**/*.md")

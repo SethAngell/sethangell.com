@@ -30,10 +30,16 @@ function div(style, children) {
 	return { type: "div", props: { style, children } };
 }
 
-export async function renderOgCard({ title, author, date }) {
-	const dateStr = DateTime.fromJSDate(date, { zone: "utc" }).toFormat(
-		"LLLL d, yyyy",
-	);
+export async function renderOgCard({
+	title,
+	author = "Seth Angell",
+	date,
+	trailing,
+	kickerPath = "/blog",
+}) {
+	const dateStr =
+		trailing ??
+		DateTime.fromJSDate(date, { zone: "utc" }).toFormat("LLLL d, yyyy");
 	const titleSize = title.length > 48 ? 64 : 82;
 
 	const node = div(
@@ -64,7 +70,7 @@ export async function renderOgCard({ title, author, date }) {
 						type: "span",
 						props: { style: { color: "#D9B68C", padding: "0 10px" }, children: "·" },
 					},
-					{ type: "span", props: { children: "/blog" } },
+					{ type: "span", props: { children: kickerPath } },
 				],
 			),
 			div({ display: "flex", flexDirection: "column" }, [
