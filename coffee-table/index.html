@@ -1,128 +1,46 @@
 ---
 layout: _baseTemplate.njk
-title: Seth's Coffee Table
+title: The Coffee Table
+description: A hand-tended collection of the podcasts, books, television, and music I'm into right now.
 ---
 
-<div class="coffee-table">
-	<h1>Welcome To My Coffee Table</h1>
-	<p>
-		Inspired by the /now page on some of my
-		<a href="https://512pixels.net/now/">favorite</a>
-		<a href="https://calebhearth.com/now">blogs</a>, I decided to put my own
-		spin on things. Welcome to my coffee table. It's a collection of media,
-		scribbles, and photos that reflect what I'm up to currently. It's not
-		automated, so it's timestamped as well (for added shame). I like seeing
-		what people I'm in to, are in to. So if you think I have decent taste
-		(or need to know what <em>not</em> to watch), this is your place :)
+<section class="ct">
+	<p class="ct-kicker">DoubleL Press</p>
+	<h1 class="ct-title">The Coffee Table</h1>
+
+	{% assign updated = collections.coffeeTable | latestAdded %}
+	<div class="ct-meta">
+		{% if updated != "" %}<span class="ct-chip">Updated · {{ updated }}</span>{% endif %}
+		<span class="ct-note">Hand-tended, not automated</span>
+	</div>
+
+	<p class="ct-intro">
+		Inspired by the <a href="https://512pixels.net/now/">/now</a> pages on some of my
+		favorite blogs — a running snapshot of the media I'm into. Not automated; tended by hand.
+		If you think I have decent taste (or want to know what <em>not</em> to watch), this is your place.
 	</p>
 
-	<div class="podcasts">
-		<h2>Podcasts</h2>
-		<p>
-			I've been a podcast nerd for the better part of the last decade, so
-			this list is constantly rotating. These are the 5 that I look
-			forward to every week.
-		</p>
-		<div class="media-grid">
-			<a href="https://atp.fm"
-				><img
-					src="/_assets/podcast-artwork/ATP.png"
-					alt="The ATP FM podcast cover artwork"
-			/></a>
-			<a href="https://softskills.audio/"
-				><img
-					src="/_assets/podcast-artwork/soft-skills-engineering.png"
-					alt="The Soft Skills Engineering podcast cover artwork"
-			/></a>
-			<a href="https://www.relay.fm/connected"
-				><img
-					src="/_assets/podcast-artwork/connected.png.jpeg"
-					alt="The Connected podcast cover artwork"
-			/></a>
-			<a href="https://www.lastpodcastontheleft.com/n"
-				><img
-					src="/_assets/podcast-artwork/lpotl.jpg"
-					alt="The Last Podcast On The Left podcast cover artwork"
-			/></a>
-			<a href="https://99percentinvisible.org"
-				><img
-					src="/_assets/podcast-artwork/99-pi.svg.png"
-					alt="The 99% Invisible podcast cover artwork"
-			/></a>
+	{% for section in coffeeTableSections %}
+	{% assign catItems = collections.coffeeTable | byCategory: section.key %}
+	{% if catItems.size > 0 %}
+	<section class="ct-section">
+		<div class="ct-section-head">
+			<span class="ct-number">{{ section.number }}</span>
+			<h2 class="ct-label">{{ section.label }}</h2>
+			<span class="ct-section-kicker">{{ section.kicker }}</span>
 		</div>
-	</div>
-
-	<div class="books">
-		<h2>Books</h2>
-		<p>
-			I go in phases of reading, but in terms of the last two years these
-			are my heavy hitters.
-		</p>
-		<div class="media-grid">
-			<a
-				href="https://openlibrary.org/works/OL17076473W/Red_Rising?edition=key%3A/books/OL26456624M"
-			>
-				<img
-					src="/_assets/book-covers/red-rising.jpg"
-					alt="The cover of Red Rising by Pierce Brown. A Red feather lays across a black background"
-				/>
-			</a>
-			<a
-				href="https://openlibrary.org/works/OL42360848W/Sunrise_on_the_Reaping?edition=key%3A/books/OL57471385M"
-			>
-				<img
-					src="/_assets/book-covers/sunrise-on-the-reaping.jpg"
-					alt="The cover of Sunrise On The Reaping by Suzanne Collins. A golden horseshoe pendant rests atop a purple background. One side of the pendant contains a snake and the other contains a bird"
-				/>
-			</a>
-			<a
-				href="https://openlibrary.org/works/OL98454W/Cat's_Cradle?edition=key%3A/books/OL37802089M"
-			>
-				<img
-					src="/_assets/book-covers/cats-cradle.jpg"
-					alt="The cover of Cat's Cradle by Kurt Vonnegut. An empty birds cage sits on a blue background"
-				/>
-			</a>
-			<a
-				href="https://openlibrary.org/works/OL22561871W/A_Psalm_for_the_Wild-Built?edition=key%3A/books/OL32177625M"
-			>
-				<img
-					src="/_assets/book-covers/a-psalm-for-the-wildbuilt.jpg"
-					alt="The cover of A Psalm For The Wild Built by Becky Chambers. A trailing road through the forest contains a robot and a person piloting a carriage"
-				/>
-			</a>
-			<a
-				href="https://openlibrary.org/works/OL81601W/On_Writing?edition=key%3A/books/OL7644833M"
-			>
-				<img
-					src="/_assets/book-covers/on-writing.jpg"
-					alt="The cover of On Writing by Stephen King. An image of a storm cellar next to a picturesque home"
-				/>
-			</a>
-		</div>
-		<div class="tv">
-			<h2>Television</h2>
-			<p>
-				Similar to books, I go in phases. Honestly, I watch
-				<em>a lot</em> of reality tv. Enjoy the chaos.
-			</p>
-			<div class="media-grid">
-				<a href="https://www.themoviedb.org/tv/69720-summer-house">
-					<img src="/_assets/tv/summer-house.jpg" />
-				</a>
-				<a href="https://www.themoviedb.org/tv/260458-adults">
-					<img src="/_assets/tv/adults.jpg" />
-				</a>
-				<a href="https://www.themoviedb.org/tv/111803-the-white-lotus">
-					<img src="/_assets/tv/white-lotus.jpeg" />
-				</a>
-				<a href="https://www.themoviedb.org/tv/241554-murderbot">
-					<img src="/_assets/tv/murder-bot.jpeg" />
-				</a>
-				<a href="https://www.themoviedb.org/tv/50042-below-deck">
-					<img src="/_assets/tv/below-deck.jpeg" />
-				</a>
+		<p class="ct-blurb">{{ section.blurb }}</p>
+		<div class="ct-cover-row">
+			{% for item in catItems %}
+			<div class="ct-tile ct-tile--{{ section.shape }}">
+				{% if item.data.link %}<a class="ct-cover" href="{{ item.data.link }}">{% else %}<div class="ct-cover">{% endif %}
+					<img src="{{ item.data.cover }}" alt="{{ item.data.title }} — {{ item.data.creator }}" />
+				{% if item.data.link %}</a>{% else %}</div>{% endif %}
+				<span class="ct-caption">{{ item.data.creator }}</span>
 			</div>
+			{% endfor %}
 		</div>
-	</div>
-</div>
+	</section>
+	{% endif %}
+	{% endfor %}
+</section>
