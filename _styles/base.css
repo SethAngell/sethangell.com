@@ -1,0 +1,111 @@
+:root {
+	--bg-color: light-dark(var(--flexoki-paper), var(--flexoki-black));
+	--bg-inverse: light-dark(var(--flexoki-black), var(--flexoki-paper));
+	--text-color: light-dark(var(--flexoki-black), var(--flexoki-paper));
+	--secondary-text-color: light-dark(var(--flexoki-800), var(--flexoki-200));
+	--main-accent: light-dark(
+		var(--flexoki-orange-50),
+		var(--flexoki-purple-950)
+	);
+	--secondary-accent: light-dark(
+		var(--flexoki-orange-300),
+		var(--flexoki-purple-600)
+	);
+	--center-column-max-width: 40dvw;
+
+	color-scheme: light dark;
+	color: var(--text-color);
+	height: 100dvh;
+	width: 100dvw;
+
+	* {
+		font-family: "Rubik", sans-serif;
+		font-optical-sizing: auto;
+		font-weight: 400;
+		font-style: normal;
+	}
+
+	.heading {
+		font-family: "Gilda Display", serif;
+		font-weight: 400;
+		font-style: normal;
+	}
+}
+
+body {
+	background-color: var(--bg-color);
+	margin: 0;
+	height: 100%;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: start;
+
+	header {
+		width: calc(100% - 2rem);
+		padding: 1rem;
+		border-bottom: solid 4px var(--secondary-accent);
+
+		background-color: var(--main-accent);
+
+		nav {
+			background-color: var(--main-accent);
+		}
+	}
+
+	nav {
+		display: flex;
+		flex-direction: row;
+		column-gap: 2rem;
+		padding: 0 1rem;
+
+		a {
+			font-weight: bold;
+			text-decoration: none;
+			color: var(--bg-inverse);
+		}
+
+		a:visited {
+			color: var(--bg-inverse);
+		}
+
+		a:hover,
+		a:focus {
+			color: var(--secondary-accent);
+		}
+	}
+
+	hr {
+		margin-top: 2.5rem;
+		border: solid 2px var(--secondary-accent);
+		border-radius: 1rem;
+		width: 100%;
+		margin-block-end: 0;
+	}
+
+	footer {
+		position: relative;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		width: calc(100% - 2rem);
+		column-gap: 1rem;
+		padding: 0.5rem 1rem;
+
+		p {
+			margin-block: 0;
+		}
+	}
+
+	main {
+		flex-grow: 1;
+	}
+}
+
+@media (max-width: 719px) {
+	:root {
+		--center-column-max-width: 90dvw;
+	}
+}

@@ -1,0 +1,48 @@
+---
+title: Seth Angell
+omit_footer: false
+meta_title: Seth Angell
+meta_url: https://sethangell.com
+meta_site_name: DoubleL Press
+meta_image: 
+---
+
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/bundle.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="canonical" href="https://sethangell.com" />
+    <link rel="alternate" type="application/rss+xml" href="/feed.rss" />
+    <link rel="me" href="https://github.com/sethangell" />
+    <link rel="author" href="/humans.txt" />
+    <meta property="og:title" content="{{meta_title}}" />
+    <meta property="og:url" content="{{meta_url}}" />
+    <meta property="og:site_name" content="{{meta_site_name}}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="{{meta_image}}" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{{ title }}</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="{{ '/' | url }}">/</a>
+        <a href="{{ '/coffee-table/' | url }}">/coffee-table</a>
+        <a href="{{ '/blog/' | url }}">/blog</a>
+      </nav>
+    </header>
+    <main>{{ content | safe }}</main>
+    {% if omit_footer == false %}
+      <hr />
+      <footer>
+        <p>Made With ❤️ In Wilmington, North Carolina</p>
+      </footer>
+    {% endif %}
+  </body>
+</html>

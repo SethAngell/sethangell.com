@@ -1,0 +1,70 @@
+.coffee-table {
+	max-width: var(--center-column-max-width);
+	display: flex;
+	flex-direction: column;
+	margin-top: 3rem;
+	row-gap: 1rem;
+
+	p {
+		font-family: "PT Sans", sans-serif;
+		font-weight: 400;
+		font-style: normal;
+
+		line-height: 1.8rem;
+		font-size: 1.3em;
+		max-width: 40rem;
+		margin-block: 0;
+	}
+
+	a {
+		color: var(--secondary-accent);
+	}
+
+	h1 {
+		font-family: "Gilda Display", serif;
+		font-weight: 400;
+		font-style: normal;
+		font-size: 2rem;
+		word-wrap: break-word;
+		margin-block: 0;
+	}
+
+	.media-grid {
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+		gap: 1rem;
+
+		img {
+			width: 100%;
+		}
+	}
+
+	.podcasts,
+	.tv,
+	.books {
+		display: flex;
+		flex-direction: column;
+		row-gap: 0.5rem;
+
+		h2 {
+			font-family: "PT Sans", sans-serif;
+			font-weight: 800;
+			font-style: normal;
+
+			line-height: 2.2rem;
+			font-size: 1.6em;
+			max-width: 40rem;
+			margin-block: 0;
+		}
+	}
+}
+
+@media (max-width: 719px) {
+	.hero {
+		flex-direction: column;
+
+		.elevator-pitch {
+			max-width: 90%;
+		}
+	}
+}
