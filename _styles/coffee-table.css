@@ -67,6 +67,10 @@
 	text-decoration-thickness: 1.5px;
 	text-underline-offset: 3px;
 }
+.ct-intro em {
+	font-family: inherit;
+	font-style: italic;
+}
 
 .ct-section {
 	border-top: 1px solid light-dark(rgba(42, 38, 34, 0.13), rgba(255, 252, 240, 0.12));
