@@ -14,7 +14,7 @@ meta_image:
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
       rel="stylesheet"
     />
     <link rel="canonical" href="https://sethangell.com" />
@@ -32,16 +32,15 @@ meta_image:
   <body>
     <header>
       <nav>
-        <a href="{{ '/' | url }}">/</a>
-        <a href="{{ '/coffee-table/' | url }}">/coffee-table</a>
-        <a href="{{ '/blog/' | url }}">/blog</a>
+        <a href="{{ '/' | url }}" class="{{ 'active' if page.url == '/' }}">/</a>
+        <a href="{{ '/coffee-table/' | url }}" class="{{ 'active' if '/coffee-table' in page.url }}">/coffee-table</a>
+        <a href="{{ '/blog/' | url }}" class="{{ 'active' if '/blog' in page.url }}">/blog</a>
       </nav>
     </header>
     <main>{{ content | safe }}</main>
     {% if omit_footer == false %}
-      <hr />
-      <footer>
-        <p>Made With ❤️ In Wilmington, North Carolina</p>
+      <footer class="site-footer">
+        <p>Made With <span class="heart">❤</span> In Wilmington, North Carolina</p>
       </footer>
     {% endif %}
   </body>
