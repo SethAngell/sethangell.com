@@ -5,11 +5,9 @@ description: We've almost figured it out.
 date: 2026-03-31
 tags: [post]
 meta_title: "Tail Chasing Optimization"
-meta_url: https://sethangell.com/blog/tail-chasing-optimization.md
 meta_site_name: DoubleL Press
+hook: "We've almost figured it out. With advances in augmented flexibility, our canines can finally chase their tails at scale."
 ---
-
-# Tail Chasing Optimization
 
 Big News! We've seen huge success in our tail chasing endeavors due to advancements in augmented flexibility. This new found tool allows our canines to run in a tighter circle, enabling more rotations per minute and vastly decreasing the time it takes wear a circle in the yard. 
 

@@ -3,14 +3,20 @@ layout: _baseTemplate.njk
 title: DoubleL Press
 ---
 
-<article class="index">
+<section class="blog-index">
+	<p class="index-kicker">DoubleL Press</p>
+	<h1 class="index-title">Writing</h1>
+	{% if intro %}<p class="index-intro">{{ intro }}</p>{% endif %}
+
 	{%- for post in collections.blog -%}
-	<div class="snippet">
-		<a class="heading fancy-link" href="{{ post.page.url }}"
-			>{{ post.data.title }}</a
-		>
-		<p class="post-date">{{ post.page.date | eloquent-date }}</p>
-		<p class="description">{{post.data.description}}</p>
-	</div>
+	<a class="post-row" href="{{ post.page.url }}">
+		<p class="post-row-meta">
+			<span>{{ post.page.date | metaDate }}</span>
+			{% assign rt = post.templateContent | readingTime %}
+			{% if rt != "" %}<span class="dot" aria-hidden="true"></span><span>{{ rt }}</span>{% endif %}
+		</p>
+		<h2 class="post-row-title">{{ post.data.title }}</h2>
+		<p class="post-row-excerpt">{{ post.data.description }}</p>
+	</a>
 	{%- endfor -%}
-</article>
+</section>
