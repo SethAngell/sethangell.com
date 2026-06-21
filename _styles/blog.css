@@ -49,10 +49,10 @@ article.blog-post {
 		word-wrap: break-word;
 	}
 
-	figure.hero {
+	figure.post-hero {
 		margin: 0 0 38px;
 	}
-	figure.hero img {
+	figure.post-hero img {
 		width: 100%;
 		aspect-ratio: 16 / 10;
 		object-fit: cover;
@@ -60,7 +60,7 @@ article.blog-post {
 		border: 1px solid light-dark(rgba(42, 38, 34, 0.1), rgba(255, 252, 240, 0.1));
 		display: block;
 	}
-	figure.hero figcaption {
+	figure.post-hero figcaption {
 		font-family: "JetBrains Mono", monospace;
 		font-size: 11.5px;
 		color: light-dark(var(--flexoki-600), var(--flexoki-500));
