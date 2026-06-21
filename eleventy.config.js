@@ -47,6 +47,10 @@ export default function (eleventyConfig) {
 	eleventyConfig.addCollection("blog", function (collectionApi) {
 		return collectionApi
 			.getFilteredByGlob("./blog/**/*.md")
+			.filter(
+				(post) =>
+					!(post.data.draft && process.env.ELEVENTY_RUN_MODE === "build"),
+			)
 			.sort((a, b) => b.date - a.date);
 	});
 
