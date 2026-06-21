@@ -26,6 +26,10 @@ meta_image:
     <meta property="og:site_name" content="{{meta_site_name}}" />
     <meta property="og:type" content="article" />
     <meta property="og:image" content="{{meta_image}}" />
+    {% if description %}
+      <meta name="description" content="{{ description }}" />
+      <meta property="og:description" content="{{ description }}" />
+    {% endif %}
     <meta name="viewport" content="width=device-width" />
     <title>{{ title }}</title>
   </head>
