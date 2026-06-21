@@ -7,12 +7,10 @@ tags: [post, product design]
 meta_title: "Iterative (Physical) Design: A Mount For My TRMNL"
 meta_url: https://sethangell.com/blog/magnetic-trmnl-mount.md
 meta_site_name: DoubleL Press
-meta_image: /_assets/magnetic-trmnl-mount-cover-image.jpeg
+heroImage: /_assets/magnetic-trmnl-mount-cover-image.jpeg
+heroAlt: "A top down image of my two TRMNLs E-Ink devices on my workbench. One is displaying my Github statistics while the other has been flipped upside down to show the magnetic mount on the back. Scattered around the rectangular E-Ink displays are the various test prints I performed to dial in the design. This is all sitting atop a black, self-healing cutting mat."
+caption: "A collection of attempts"
 ---
-
-![A top down image of my two TRMNLs E-Ink devices on my workbench. One is displaying my Github statistics while the other has been flipped upside down to show the magnetic mount on the back. Scattered around the rectangular E-Ink displays are the various test prints I performed to dial in the design. This is all sitting atop a black, self-healing cutting mat.](/_assets/magnetic-trmnl-mount-cover-image.jpeg "A collection of attempts")
-
-# Iterative (Physical) Design: A Mount For My TRMNL
 
 On the recommendation of Casey from [ATP](https://atp.fm), I recently picked up a couple of TRMNL E-Ink displays. They're really neat little gadgets - a simple E-Ink display that syncs with all of your favorite services to display info in a clean and simple manner. I've only had mine for a month now, but I've loved having Github stats, Todoist lists, and my calender displayed on my desk. They also have a pretty robust developer framework for writing your own plugins. I'll be digging into that real soon. If you have any interest, they set me up with a referral code ([sethangell](https://usetrmnl.com?ref=sethangell)) that gets you $10 off.
 
