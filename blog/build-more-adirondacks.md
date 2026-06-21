@@ -5,7 +5,6 @@ description: There’s an issue in carpentry that divides the field in two. It h
 date: 2024-05-01
 tags: [post]
 meta_title: "Build More Adirondacks"
-meta_url: https://sethangell.com/blog/build-more-adirondacks.md
 meta_site_name: DoubleL Press
 hook: "There’s an issue in carpentry that divides the field in two. It has to do with chairs."
 ---

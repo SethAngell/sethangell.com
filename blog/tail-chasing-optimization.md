@@ -5,7 +5,6 @@ description: We've almost figured it out.
 date: 2026-03-31
 tags: [post]
 meta_title: "Tail Chasing Optimization"
-meta_url: https://sethangell.com/blog/tail-chasing-optimization.md
 meta_site_name: DoubleL Press
 hook: "We've almost figured it out. With advances in augmented flexibility, our canines can finally chase their tails at scale."
 ---
